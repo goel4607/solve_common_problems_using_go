@@ -1,4 +1,4 @@
-package findtwosums
+package findTwoSums
 
 type TwoSumFinderSolution1BF struct {
 }

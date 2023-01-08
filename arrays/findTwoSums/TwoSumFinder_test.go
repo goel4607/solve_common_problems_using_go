@@ -1,4 +1,4 @@
-package findtwosums
+package findTwoSums
 
 import (
 	"fmt"

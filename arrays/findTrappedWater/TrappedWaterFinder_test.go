@@ -21,28 +21,28 @@ func TestFindTrappedWater(t *testing.T) {
 		}{
 			{
 				"A positive test case",
-				[]int{1, 3, 6, 9, 2},
-				15,
+				[]int{0, 1, 0, 2, 1, 0, 3, 1, 0, 1, 2},
+				8,
 			},
 			{
 				"Another positive test case",
-				[]int{1, 3, 6, 9, 2},
-				11,
+				[]int{0, 1, 0, 2, 1, 0, 3, 0, 0, 1, 2},
+				9,
 			},
 			{
-				"A negative test case when no nums sum is same as target",
-				[]int{1, 3, 6, 9, 2},
-				25,
+				"A negative test case when no value is captured as no trapped water",
+				[]int{3, 4, 3},
+				0,
 			},
 			{
 				"A negative test case when only one num is given",
 				[]int{5},
-				5,
+				0,
 			},
 			{
 				"A negative test case when no i/p is given",
 				[]int{},
-				25,
+				0,
 			},
 		}
 

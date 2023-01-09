@@ -6,11 +6,11 @@ import (
 )
 
 var (
-	impls = []TrappedWaterFinder{}
+	impls = make([]TrappedWaterFinder, 0)
 )
 
 func TestFindTrappedWater(t *testing.T) {
-	//impls = {}
+	impls = append(impls, TrappedWaterFinderSolution1BF{})
 	for _, impl := range impls {
 		t.Logf("Using: %T", impl)
 
@@ -47,7 +47,7 @@ func TestFindTrappedWater(t *testing.T) {
 		}
 
 		for i, tt := range inputs {
-			t.Logf("test # %d, input=%v, target=%v and expected output=%v, %v", i, tt.input, tt.expectedOpt, tt.info)
+			t.Logf("test # %d, input=%v, and expected output=%v, %v", i, tt.input, tt.expectedOpt, tt.info)
 			actualOpt := impl.findTrappedWater(tt.input)
 			assert.Equal(t, tt.expectedOpt, actualOpt)
 		}

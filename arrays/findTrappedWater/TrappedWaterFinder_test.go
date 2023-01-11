@@ -10,7 +10,7 @@ var (
 )
 
 func TestFindTrappedWater(t *testing.T) {
-	impls = append(impls, TrappedWaterFinderSolution1BF{})
+	impls = append(impls, TrappedWaterFinderSolution1BF{}, TrappedWaterFinderSolution2Efficient{})
 	for _, impl := range impls {
 		t.Logf("Using: %T", impl)
 

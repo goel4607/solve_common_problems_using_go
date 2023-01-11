@@ -1,4 +1,4 @@
-package findtwosums
+package findTwoSums
 
 type TwoSumFinderS2Efficient struct {
 }

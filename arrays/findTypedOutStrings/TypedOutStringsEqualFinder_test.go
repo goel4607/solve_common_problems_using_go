@@ -10,7 +10,7 @@ var (
 )
 
 func TestTypedOutStringsEqualFinder(t *testing.T) {
-	impls = append(impls, TypedOutStringsEqualsFinderS1Bf{})
+	impls = append(impls, TypedOutStringsEqualsFinderS1Bf{}, TypedOutStringsEqualsFindersS2Efficient{})
 	for _, impl := range impls {
 		t.Logf("Using: %T", impl)
 
@@ -20,7 +20,8 @@ func TestTypedOutStringsEqualFinder(t *testing.T) {
 			t           string
 			expectedOpt bool
 		}{
-			{"+ve test with both strings have multiple continuous hashes", "bcd###", "abcd###", false},
+			{"+ve test with strings differing in hashes", "a##c", "#a#c", true},
+			{"-ve test with both strings have multiple continuous hashes", "bcd###", "abcd###", false},
 			{"+ve test with both strings have same number of hashes", "ab#z", "az#z", true},
 			{"-ve test", "abc#d", "acc#c", false},
 			{"+ve test with multiple hashes in one and single hash in other string", "x#y#z#", "a#", true},

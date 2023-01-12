@@ -10,7 +10,7 @@ var (
 )
 
 func TestTypedOutStringsEqualFinder(t *testing.T) {
-	impls = append(impls, TypedOutStringsEqualsFinderS1Bf{}, TypedOutStringsEqualsFindersS2Efficient{})
+	impls = append(impls, TypedOutStringsEqualsFinderS1Bf{}, TypedOutStringsEqualsFindersS2Efficient{}, TypedOutStringsEqualsFindersS3EfficientSimplified{})
 	for _, impl := range impls {
 		t.Logf("Using: %T", impl)
 

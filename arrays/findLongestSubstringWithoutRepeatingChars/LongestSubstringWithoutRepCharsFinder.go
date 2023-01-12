@@ -1,0 +1,5 @@
+package findLongestSubstringWithoutRepeatingChars
+
+type FindLongestSubstringWithoutRepCharsFinder interface {
+	findLongestSubstringWithoutRepeatingChars(s string) int
+}

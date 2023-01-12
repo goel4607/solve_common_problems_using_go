@@ -15,8 +15,8 @@ func (s2 TypedOutStringsEqualsFindersS2Efficient) findIfTypedOutStringsAreEqual(
 		//if pS > 0 && s[pS] == hash || t[pT] == hash {
 	checkHashInS:
 		if pS >= 0 && s[pS] == hash {
-			skipChars := 0 // since we are already skipping one char
-			pS--
+			var skipChars int
+			pS-- // since we already checked for hash
 			for skipChars >= 0 && pS >= 0 {
 				if s[pS] == hash {
 					skipChars += 1
@@ -27,13 +27,13 @@ func (s2 TypedOutStringsEqualsFindersS2Efficient) findIfTypedOutStringsAreEqual(
 			}
 
 			if pS >= 0 {
-				goto checkHashInS
+				goto checkHashInS // we need non-hash char so check for this again
 			}
 		}
 
 	checkHashInT:
 		if pT >= 0 && t[pT] == hash {
-			skipChars := 0 // since we are already skipping one char
+			var skipChars int
 			pT--
 			for skipChars >= 0 && pT >= 0 {
 				if t[pT] == hash {
@@ -54,7 +54,7 @@ func (s2 TypedOutStringsEqualsFindersS2Efficient) findIfTypedOutStringsAreEqual(
 				return false
 			}
 
-			// dec pS and pT
+			// check the next number
 			pS--
 			pT--
 		} else if pS < 0 && pT < 0 {

@@ -1,4 +1,4 @@
-package findLongestSubstringWithoutRepeatingChars
+package findLongestSubstrWithoutRepeatingChars
 
 import (
 	"github.com/stretchr/testify/assert"

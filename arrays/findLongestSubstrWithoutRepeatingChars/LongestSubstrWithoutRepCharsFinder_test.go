@@ -1,6 +1,7 @@
 package findLongestSubstrWithoutRepeatingChars
 
 import (
+	"github.com/solve_common_problems_using_go"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -10,7 +11,7 @@ var (
 )
 
 func TestFindLongestSubstringWithoutRepChars(t *testing.T) {
-	impls = append(impls, LongestSubstringWithoutRepCharsFinderS1BF{})
+	impls = append(impls, LongestSubstringWithoutRepCharsFinderS1BF{}, LongestSubstrWithoutRepeatingCharsS2Eff{}, LongestSubstrWithoutRepeatingCharsS2EffSimplified{})
 
 	for _, impl := range impls {
 		t.Logf("Using: %T", impl)
@@ -43,9 +44,16 @@ func TestFindLongestSubstringWithoutRepChars(t *testing.T) {
 		}
 
 		for i, tt := range inputs {
-			t.Logf("test # %d, input=%v and expected output=%v, %v", i+1, tt.input, tt.expectedOpt, tt.info)
+
 			actualOpt := impl.findLongestSubstringWithoutRepeatingChars(tt.input)
-			assert.Equal(t, tt.expectedOpt, actualOpt)
+			var pOrF string
+			if assert.Equal(t, tt.expectedOpt, actualOpt) {
+				pOrF = solve_common_problems_using_go.Passed
+			} else {
+				pOrF = solve_common_problems_using_go.Failed
+			}
+
+			t.Logf("test # %d, %s input=%v and expected output=%v, %v", i+1, pOrF, tt.input, tt.expectedOpt, tt.info)
 		}
 	}
 }

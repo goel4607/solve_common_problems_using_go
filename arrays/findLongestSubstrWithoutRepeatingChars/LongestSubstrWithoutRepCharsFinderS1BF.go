@@ -1,4 +1,4 @@
-package findLongestSubstringWithoutRepeatingChars
+package findLongestSubstrWithoutRepeatingChars
 
 type LongestSubstringWithoutRepCharsFinderS1BF struct {
 }

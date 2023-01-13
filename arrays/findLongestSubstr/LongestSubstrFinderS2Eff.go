@@ -1,9 +1,9 @@
-package findLongestSubstrWithoutRepeatingChars
+package findLongestSubstr
 
-type LongestSubstrWithoutRepeatingCharsS2Eff struct {
+type LongestSubstrFinderS2Eff struct {
 }
 
-func (s2 LongestSubstrWithoutRepeatingCharsS2Eff) findLongestSubstringWithoutRepeatingChars(s string) int {
+func (s2 LongestSubstrFinderS2Eff) findLongestSubstring(s string) int {
 
 	var longest, cMax, leftIdx int
 

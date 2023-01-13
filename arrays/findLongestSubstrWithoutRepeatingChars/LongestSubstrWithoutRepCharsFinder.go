@@ -1,5 +1,0 @@
-package findLongestSubstrWithoutRepeatingChars
-
-type FindLongestSubstringWithoutRepCharsFinder interface {
-	findLongestSubstringWithoutRepeatingChars(s string) int
-}

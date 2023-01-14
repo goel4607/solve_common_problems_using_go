@@ -4,10 +4,10 @@ import (
 	"strings"
 )
 
-type PalindromeFinderS1BF struct {
+type PalindromeFinderS1LeftAndRightPts struct {
 }
 
-func (s1 PalindromeFinderS1BF) findPalindrome(s string) bool {
+func (s1 PalindromeFinderS1LeftAndRightPts) findPalindrome(s string) bool {
 	s = removePuncChars(s)
 	left, right := 0, len(s)-1
 

@@ -11,7 +11,7 @@ var (
 )
 
 func TestPalindrome(t *testing.T) {
-	impls = append(impls, PalindromeFinderS1BF{})
+	impls = append(impls, PalindromeFinderS1LeftAndRightPts{}, PalindromeFinderS2ReverseComp{})
 
 	for _, impl := range impls {
 		t.Logf("Using: %T", impl)
@@ -43,13 +43,13 @@ type PalindromeTester struct {
 func getTestData() []PalindromeTester {
 	return []PalindromeTester{
 		{"+ve test, a long one", "A man, a plan, a canal: Panama", true},
-		{"+ve test, a simple simple one", "aba", true},
-		{"+ve test, a simple one", "abc", false},
+		{"+ve test, a simple one", "aba", true},
+		{"-ve test, a simple one", "abc", false},
 		{"+ve test, only one char", "a", true},
 		{"+ve test, two same chars", "aa", true},
 		{"-ve test, empty string", "", true},
 		{"+ve test, two words", "race car", true},
-		{"+ve test, simple string", "aabaa", true},
-		{"+ve test, simple string", "abba", true},
+		{"+ve test, simple odd number of chars", "aabaa", true},
+		{"+ve test, simple even number of chars", "abba", true},
 	}
 }

@@ -11,7 +11,11 @@ var (
 )
 
 func TestPalindrome(t *testing.T) {
-	impls = append(impls, PalindromeFinderS1LeftAndRightPts{}, PalindromeFinderS2ReverseComp{})
+	impls = append(impls,
+		PalindromeFinderS1LeftAndRightPts{},
+		PalindromeFinderS2ReverseComp{},
+		PalindromeFinderS3CenterExpand{},
+	)
 
 	for _, impl := range impls {
 		t.Logf("Using: %T", impl)

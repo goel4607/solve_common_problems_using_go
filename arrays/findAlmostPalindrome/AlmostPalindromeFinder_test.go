@@ -12,7 +12,7 @@ var (
 
 func TestPalindrome(t *testing.T) {
 	impls = append(impls,
-		AlmostPalindomeFinderS1BF{},
+		AlmostPalindromeFinderS1BF{},
 	)
 
 	for _, impl := range impls {

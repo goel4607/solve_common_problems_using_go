@@ -5,10 +5,10 @@ import (
 	"strings"
 )
 
-type AlmostPalindomeFinderS1BF struct {
+type AlmostPalindromeFinderS1BF struct {
 }
 
-func (s1Bf AlmostPalindomeFinderS1BF) findAlmostPalindrome(s string) bool {
+func (s1Bf AlmostPalindromeFinderS1BF) findAlmostPalindrome(s string) bool {
 	r, _ := regexp.Compile("[^a-zA-Z0-9]")
 	s = r.ReplaceAllString(s, "")
 	if len(s) <= 2 {

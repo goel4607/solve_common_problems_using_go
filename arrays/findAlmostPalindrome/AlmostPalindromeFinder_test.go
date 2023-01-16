@@ -14,6 +14,7 @@ func TestPalindrome(t *testing.T) {
 	impls = append(impls,
 		AlmostPalindromeFinderS1BF{},
 		AlmostPalindromeFinderS2Eff{},
+		AlmostPalindromeFinderS3EfficientBetterReadability{},
 	)
 
 	for _, impl := range impls {
@@ -32,7 +33,7 @@ func TestPalindrome(t *testing.T) {
 				pOrF = solve_common_problems_using_go.Failed
 			}
 
-			t.Logf("test # %d, %s input=%v and expected output=%v, %v", i+1, pOrF, tt.input, tt.expectedOpt, tt.testSummary)
+			t.Logf("test # %2d, %s input=%q and expected output=%v, %v", i+1, pOrF, tt.input, tt.expectedOpt, tt.testSummary)
 		}
 	}
 }

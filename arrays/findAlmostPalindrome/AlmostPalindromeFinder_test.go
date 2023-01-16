@@ -13,6 +13,7 @@ var (
 func TestPalindrome(t *testing.T) {
 	impls = append(impls,
 		AlmostPalindromeFinderS1BF{},
+		AlmostPalindromeFinderS2Eff{},
 	)
 
 	for _, impl := range impls {
@@ -45,8 +46,8 @@ type AlmostPalindromeTester struct {
 func getTestData() []AlmostPalindromeTester {
 	return []AlmostPalindromeTester{
 		//{"+ve test, a long one", "A man, a plan, a canal: Panama", true},
-		{"-ve test, a long almost one", "A man, a plan, a canal: anama", true},
-		{"-ve test, a long almost one", "A an, a plan, a canal: Panama", true},
+		{"+ve test, a long almost one", "A man, a plan, a canal: anama", true},
+		{"+ve test, a long almost one", "A an, a plan, a canal: Panama", true},
 		{"-ve test, a long almost but two chars, so not a palindrome", "A n, a plan, a canal: Panama", false},
 		//{"+ve test, a simple one", "aba", true},
 		{"+ve test, a simple almost even one", "abaa", true},

@@ -9,7 +9,7 @@ var (
 	impls []MostWaterContainerFinder
 )
 
-func TestFindTwoSumsPositive(t *testing.T) {
+func TestContainerWithMostWater(t *testing.T) {
 	impls = append(impls, MostWaterContainerFinderS1BF{}, MostWaterContainerFinderS2Efficient{})
 
 	for _, impl := range impls {

@@ -10,40 +10,46 @@ var (
 	impls = make([]FindLongestSubstrFinder, 0)
 )
 
+type LongestSubstrFinderTest struct {
+	info        string
+	input       string
+	expectedOpt int
+}
+
+func testData() []LongestSubstrFinderTest {
+	return []LongestSubstrFinderTest{
+		{
+			"A positive test case with greatest value is among the area walls",
+			"abccabb",
+			3,
+		},
+		{
+			"A positive test case with greatest value is among the area walls",
+			"aaaaaa",
+			1,
+		},
+		{
+			"Another positive test case with middle value greatest but it is not amongst the wall",
+			"",
+			0,
+		},
+		{
+			"Another positive test case when diff is only one",
+			"abcbda",
+			4,
+		},
+	}
+}
+
 func TestFindLongestSubstringWithoutRepChars(t *testing.T) {
 	impls = append(impls, LongestSubstrFinderS1BF{}, LongestSubstrFinderS2Eff{}, LongestSubstrFinderS2EffSimplified{})
+
+	tests := testData()
 
 	for _, impl := range impls {
 		t.Logf("Using: %T", impl)
 
-		inputs := []struct {
-			info        string
-			input       string
-			expectedOpt int
-		}{
-			{
-				"A positive test case with greatest value is among the area walls",
-				"abccabb",
-				3,
-			},
-			{
-				"A positive test case with greatest value is among the area walls",
-				"aaaaaa",
-				1,
-			},
-			{
-				"Another positive test case with middle value greatest but it is not amongst the wall",
-				"",
-				0,
-			},
-			{
-				"Another positive test case when diff is only one",
-				"abcbda",
-				4,
-			},
-		}
-
-		for i, tt := range inputs {
+		for i, tt := range tests {
 
 			actualOpt := impl.findLongestSubstring(tt.input)
 			var pOrF string

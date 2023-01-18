@@ -38,11 +38,22 @@ func testData() []LongestSubstrFinderTest {
 			"abcbda",
 			4,
 		},
+		{
+			"Another positive test case when diff is only one",
+			"abcbdabcd",
+			4,
+		},
 	}
 }
 
 func TestFindLongestSubstringWithoutRepChars(t *testing.T) {
-	impls = append(impls, LongestSubstrFinderS1BF{}, LongestSubstrFinderS2Eff{}, LongestSubstrFinderS2EffSimplified{})
+	impls = append(
+		impls,
+		//LongestSubstrFinderS1BF{},
+		//LongestSubstrFinderS2Eff{},
+		//LongestSubstrFinderS2EffSimplified{},
+		LongestSubstrFinderS4Prac1{},
+	)
 
 	tests := testData()
 

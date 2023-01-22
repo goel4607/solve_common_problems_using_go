@@ -1,23 +1,24 @@
-package singlylinkedlist
+package reverse
 
 import (
 	"github.com/solve_common_problems_using_go"
+	"github.com/solve_common_problems_using_go/linkedlist/singlylinkedlist"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
-type NodeTest struct {
+type ReverseTest struct {
 	testSummary string
 	input       []any
 	expOpt      []any
 }
 
 var (
-	impls = make([]Node, 0)
+	impls = make([]Reverser, 0)
 )
 
 func TestNode(t *testing.T) {
-	impls = append(impls, Node{})
+	impls = append(impls, &ReverserS1BF{})
 
 	tests := testData()
 	t.Logf("Given a list of values, find out if the singly linked list population and retrieval is working fine? [#tests=%d]", len(tests))
@@ -26,11 +27,12 @@ func TestNode(t *testing.T) {
 		t.Logf("Using: %T", impl)
 
 		for i, tt := range tests {
+			n := &singlylinkedlist.Node{}
+			n.Init(tt.input)
 
-			impl.Init(tt.input)
-
+			rNode := impl.reverse(n)
 			var pOrF string
-			if assert.Equal(t, tt.expOpt, tt.input) {
+			if assert.Equal(t, tt.expOpt, rNode.AllData()) {
 				pOrF = solve_common_problems_using_go.Passed
 			} else {
 				pOrF = solve_common_problems_using_go.Failed
@@ -41,12 +43,12 @@ func TestNode(t *testing.T) {
 	}
 }
 
-func testData() []NodeTest {
-	return []NodeTest{
+func testData() []ReverseTest {
+	return []ReverseTest{
 		{
-			"normal test Data",
+			"normal test data",
 			[]any{1, 2, 3, 4, 5},
-			[]any{1, 2, 3, 4, 5},
+			[]any{5, 4, 3, 2, 1},
 		},
 	}
 }

@@ -1,19 +1,20 @@
 package singlylinkedlist
 
 type Node struct {
-	next *Node
-	data any
+	Next *Node
+	Data any
 }
 
 func (n *Node) Init(d []any) {
 	p := n
 	for _, d := range d {
 		t := &Node{
-			data: d,
-			next: nil,
+			Data: d,
+			Next: nil,
 		}
 
-		p.next = t
+		p.Next = t
+		p = t
 	}
 }
 
@@ -21,9 +22,9 @@ func (n *Node) AllData() []any {
 	all := make([]any, 0)
 
 	t := n
-	for t.next != nil {
-		all = append(all, t.data)
-		t = t.next
+	for t.Next != nil {
+		all = append(all, t.Data)
+		t = t.Next
 	}
 
 	return all

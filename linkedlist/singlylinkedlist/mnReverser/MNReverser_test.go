@@ -18,9 +18,24 @@ type MNReverseTest struct {
 func testData() []MNReverseTest {
 	return []MNReverseTest{
 		{
-			"normal test data",
+			"normal test data with m and m in-between values",
 			[]any{1, 2, 3, 4, 5, 6, 7}, 3, 5,
 			[]any{1, 2, 5, 4, 3, 6, 7},
+		},
+		{
+			"normal test data with n as the last value",
+			[]any{1, 2, 3, 4, 5, 6, 7}, 3, 7,
+			[]any{1, 2, 7, 6, 5, 4, 3},
+		},
+		{
+			"normal test data with m as the first value",
+			[]any{1, 2, 3, 4, 5, 6, 7}, 1, 5,
+			[]any{5, 4, 3, 2, 1, 6, 7},
+		},
+		{
+			"normal test data with m as the first value",
+			[]any{1, 2, 3, 4, 5, 6, 7}, 1, 7,
+			[]any{7, 6, 5, 4, 3, 2, 1},
 		},
 	}
 }
@@ -31,8 +46,10 @@ var (
 
 func TestNode(t *testing.T) {
 	impls =
-		append(impls) //&ReverserS1BF{},
-	//&ReverserS2Repeat{},
+		append(impls,
+			&MNReverserS1BF{},
+			//&ReverserS2Repeat{},
+		)
 
 	tests := testData()
 	t.Logf("Given a list of values along with starting and ending positions m and n, reverse the list such that only the elements between m & n are reversed [#tests=%d]", len(tests))

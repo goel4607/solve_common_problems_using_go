@@ -18,7 +18,11 @@ var (
 )
 
 func TestNode(t *testing.T) {
-	impls = append(impls, &ReverserS1BF{})
+	impls =
+		append(impls,
+			//&ReverserS1BF{},
+			&ReverserS2Repeat{},
+		)
 
 	tests := testData()
 	t.Logf("Given a list of values, find out if the singly linked list population and retrieval is working fine? [#tests=%d]", len(tests))

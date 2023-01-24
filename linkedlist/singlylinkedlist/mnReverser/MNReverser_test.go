@@ -44,7 +44,7 @@ var (
 	impls = make([]MNReverser, 0)
 )
 
-func TestNode(t *testing.T) {
+func TestMNReverserImplementations(t *testing.T) {
 	impls =
 		append(impls,
 			&MNReverserS1BF{},

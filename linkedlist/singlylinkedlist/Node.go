@@ -7,14 +7,17 @@ type Node struct {
 
 func (n *Node) Init(d []any) {
 	p := n
-	for _, d := range d {
-		t := &Node{
-			Data: d,
-			Next: nil,
+	for i, d := range d {
+		if i == 0 {
+			n.Data = d // using the current node as the first node
+		} else {
+			t := &Node{
+				Data: d,
+				Next: nil,
+			}
+			p.Next = t
+			p = t
 		}
-
-		p.Next = t
-		p = t
 	}
 }
 
@@ -22,7 +25,7 @@ func (n *Node) AllData() []any {
 	all := make([]any, 0)
 
 	t := n
-	for t.Next != nil {
+	for t != nil {
 		all = append(all, t.Data)
 		t = t.Next
 	}

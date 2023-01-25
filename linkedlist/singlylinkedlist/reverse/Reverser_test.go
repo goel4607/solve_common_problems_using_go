@@ -17,10 +17,10 @@ var (
 	impls = make([]Reverser, 0)
 )
 
-func TestNode(t *testing.T) {
+func TestReverserImplementations(t *testing.T) {
 	impls =
 		append(impls,
-			//&ReverserS1BF{},
+			&ReverserS1BF{},
 			&ReverserS2Repeat{},
 		)
 

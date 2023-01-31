@@ -4,40 +4,40 @@ type Solution1 struct {
 }
 
 func (s1 Solution1) findBalancedStrWithMinBrackets(s string) string {
-	// declare stack of int with each value rep the position of the bracket
-	posStack := stack{}
-	// declare another stack for dangling back bracket positions
+	// declare Stack of int with each value rep the position of the bracket
+	posStack := Stack{}
+	// declare another Stack for dangling back bracket positions
 	backBracs := []int{}
-	// store the pos of starting brackets in a stack
+	// store the pos of starting brackets in a Stack
 	// loop over the given string one char at a time
 	for i, v := range s {
-		// if the char is a starting bracket then store that into the stack
+		// if the char is a starting bracket then store that into the Stack
 		if v == '(' {
-			posStack.push(i)
+			posStack.Push(i)
 		} else if v == ')' {
-			// if the char is an ending bracket then if the stack is not empty then pop one element of the stack
-			if posStack.isEmpty() {
+			// if the char is an ending bracket then if the Stack is not empty then Pop one element of the Stack
+			if posStack.Empty() {
 				backBracs = append(backBracs, i)
 			} else {
-				posStack.pop()
+				posStack.Pop()
 			}
 		}
 	}
-	// make a map of all the remaining positions in both slice and stack
-	if posStack.isEmpty() && len(backBracs) == 0 {
+	// make a map of all the remaining positions in both slice and Stack
+	if posStack.Empty() && len(backBracs) == 0 {
 		return s
 	}
 
 	unWantedBracs := make(map[int]bool)
-	for !posStack.isEmpty() {
-		unWantedBracs[posStack.pop()] = true
+	for !posStack.Empty() {
+		unWantedBracs[posStack.Pop()] = true
 	}
 
 	for _, v := range backBracs {
 		unWantedBracs[v] = true
 	}
 	// create a slice of chars which will hold the balanced chars
-	balStr := make([]rune, 0, len(s)-len(backBracs)-posStack.len())
+	balStr := make([]rune, 0, len(s)-len(backBracs)-posStack.Len())
 	// loop over the given string from backwords
 	for i, r := range s {
 		// if the index matches with the map index then delete the map value
@@ -50,22 +50,29 @@ func (s1 Solution1) findBalancedStrWithMinBrackets(s string) string {
 	return string(balStr)
 }
 
-type stack struct {
+type Stack struct {
 	values []int
 }
 
-func (s *stack) push(a int) {
+func (s *Stack) Push(a int) {
 	s.values = append(s.values, a)
 }
 
-func (s *stack) pop() int {
+func (s *Stack) Pop() int {
 	v := s.values[len(s.values)-1]
 	s.values = s.values[0 : len(s.values)-1]
 
 	return v
 }
 
-func (s *stack) isEmpty() bool {
+func (s *Stack) Peek() (int, bool) {
+	if s.Empty() {
+		return 0, false
+	}
+	return s.values[len(s.values)-1], true
+}
+
+func (s *Stack) Empty() bool {
 	if len(s.values) == 0 {
 		return true
 	}
@@ -73,6 +80,6 @@ func (s *stack) isEmpty() bool {
 	return false
 }
 
-func (s *stack) len() int {
+func (s *Stack) Len() int {
 	return len(s.values)
 }

@@ -22,6 +22,18 @@ func testData() []LargestElementFinderTest {
 			5,
 		},
 		{
+			"+v test with no duplicate values",
+			[]int{5, 3, 1, 6, 4, 2},
+			2,
+			5,
+		},
+		{
+			"+v test with duplicate values",
+			[]int{2, 3, 1, 2, 4, 2},
+			4,
+			2,
+		},
+		{
 			"+v test with no duplicate values but edge case",
 			[]int{4, 5, 1, 2, 8, 7},
 			6,
@@ -55,7 +67,8 @@ var (
 func TestLargestElementFinderAtPos(t *testing.T) {
 	impls = append(
 		impls,
-		S1BF{},
+		//S1BF{},
+		S2UsingQSelect{},
 	)
 
 	tests := testData()

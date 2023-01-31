@@ -40,6 +40,7 @@ func TestQuestImplementations(t *testing.T) {
 	impls =
 		append(impls,
 			&Solution1{},
+			&Solution2QUsingStack{},
 		)
 
 	tests := testData()

@@ -85,6 +85,7 @@ func TestArrangeGoodsByPropertyImplementations(t *testing.T) {
 	impls =
 		append(impls,
 			&GoodsByPropertyArrangerSolution1{},
+			&Prac1{},
 		)
 	tests := testData()
 

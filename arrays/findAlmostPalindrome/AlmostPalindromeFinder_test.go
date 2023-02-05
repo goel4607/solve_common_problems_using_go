@@ -10,34 +10,6 @@ var (
 	impls = make([]AlmostPalindromeFinder, 0)
 )
 
-func TestPalindrome(t *testing.T) {
-	impls = append(impls,
-		AlmostPalindromeFinderS1BF{},
-		AlmostPalindromeFinderS2Eff{},
-		AlmostPalindromeFinderS3EfficientBetterReadability{},
-	)
-
-	for _, impl := range impls {
-		t.Logf("Using: %T", impl)
-
-		td := getTestData()
-		t.Logf("Given a string, find out whether it is an almost palindrome (removing a single char makes it a palindrome)? [#tests=%d]", len(td))
-
-		for i, tt := range td {
-
-			actualOpt := impl.findAlmostPalindrome(tt.input)
-			var pOrF string
-			if assert.Equal(t, tt.expectedOpt, actualOpt) {
-				pOrF = solve_common_problems_using_go.Passed
-			} else {
-				pOrF = solve_common_problems_using_go.Failed
-			}
-
-			t.Logf("test # %2d, %s input=%q and expected output=%v, %v", i+1, pOrF, tt.input, tt.expectedOpt, tt.testSummary)
-		}
-	}
-}
-
 type AlmostPalindromeTester struct {
 	testSummary string
 	input       string
@@ -64,5 +36,33 @@ func getTestData() []AlmostPalindromeTester {
 		//{"+ve test, two words", "race car", true},
 		//{"+ve test, simple odd number of chars", "aabaa", true},
 		//{"+ve test, simple even number of chars", "abba", true},
+	}
+}
+func TestPalindrome(t *testing.T) {
+	impls = append(impls,
+		//AlmostPalindromeFinderS1BF{},
+		//AlmostPalindromeFinderS2Eff{},
+		//AlmostPalindromeFinderS3EfficientBetterReadability{},
+		Prac1{},
+	)
+
+	for _, impl := range impls {
+		t.Logf("Using: %T", impl)
+
+		td := getTestData()
+		t.Logf("Given a string, find out whether it is an almost palindrome (removing a single char makes it a palindrome)? [#tests=%d]", len(td))
+
+		for i, tt := range td {
+
+			actualOpt := impl.findAlmostPalindrome(tt.input)
+			var pOrF string
+			if assert.Equal(t, tt.expectedOpt, actualOpt) {
+				pOrF = solve_common_problems_using_go.Passed
+			} else {
+				pOrF = solve_common_problems_using_go.Failed
+			}
+
+			t.Logf("test # %2d, %s input=%q and expected output=%v, %v", i+1, pOrF, tt.input, tt.expectedOpt, tt.testSummary)
+		}
 	}
 }

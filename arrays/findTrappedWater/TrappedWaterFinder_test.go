@@ -48,9 +48,10 @@ func getTestData() []TrappedWaterTest {
 func TestFindTrappedWater(t *testing.T) {
 	impls = append(
 		impls,
-		TrappedWaterFinderSolution1BF{},
-		TrappedWaterFinderSolution2Efficient{},
-		TrappedWaterFinderS3Att{},
+		//TrappedWaterFinderSolution1BF{},
+		//TrappedWaterFinderSolution2Efficient{},
+		//TrappedWaterFinderS3Att{},
+		FindTrappedWaterPrac2{},
 	)
 	for _, impl := range impls {
 		t.Logf("Using: %T", impl)

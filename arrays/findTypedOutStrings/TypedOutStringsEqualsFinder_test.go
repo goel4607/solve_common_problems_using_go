@@ -39,7 +39,8 @@ func TestTypedOutStringsEqualFinder(t *testing.T) {
 		//TypedOutStringsEqualsFinderS1Bf{},
 		//TypedOutStringsEqualsFindersS2Efficient{},
 		//TypedOutStringsEqualsFindersS3EfficientSimplified{},
-		TypedOutStringsEqualFinderS4Prac1{},
+		//TypedOutStringsEqualFinderS4Prac1{},
+		TypedOutStringsEqualsFinderS4Prac2{},
 	)
 
 	tests := getTests()

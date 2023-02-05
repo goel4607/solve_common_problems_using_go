@@ -2,12 +2,12 @@ Given an array of integers representing an elevation map where the width of each
 
 Eg, input elevation map: [0, 1, 0, 2, 1, 0, 3, 1, 0, 1, 2]
 
-![elevationMapPlotted.png](elevationMapPlotted.png)
+![elevationMapPlotted.png](ProblemElevationMapPlotted.png)
 
 Expected output: Trapped rainwater is represented in BLUE color below: 
 
-![elevationMapPlottedWithWaterTrappedCalc.png](elevationMapPlottedWithWaterTrapped.png)
-![elevationMapPlottedWithWaterTrappedCalc.png](elevationMapPlottedWithWaterTrappedCalc.png)
+![elevationMapPlottedWithWaterTrappedCalc.png](ProblemElevationMapPlottedWithWaterTrapped.png)
+![elevationMapPlottedWithWaterTrappedCalc.png](ProblemElevationMapPlottedWithWaterTrappedCalc.png)
 
 So here the total trapped water calculation is: 
 

@@ -57,6 +57,7 @@ func TestContainerWithMostWater(t *testing.T) {
 			MostWaterContainerFinderS1BF{},
 			MostWaterContainerFinderS2Efficient{},
 			MostWaterContainerFinderS3Prac{},
+			Prac2{},
 		)
 
 	tests := testData()

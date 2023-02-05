@@ -52,7 +52,8 @@ func TestFindLongestSubstringWithoutRepChars(t *testing.T) {
 		//LongestSubstrFinderS1BF{},
 		//LongestSubstrFinderS2Eff{},
 		//LongestSubstrFinderS2EffSimplified{},
-		LongestSubstrFinderS4Prac1{},
+		//LongestSubstrFinderS4Prac1{},
+		LongestSubstrFinderS5Prac2{},
 	)
 
 	tests := testData()

@@ -40,9 +40,9 @@ func getTestData() []AlmostPalindromeTester {
 }
 func TestPalindrome(t *testing.T) {
 	impls = append(impls,
-		//AlmostPalindromeFinderS1BF{},
-		//AlmostPalindromeFinderS2Eff{},
-		//AlmostPalindromeFinderS3EfficientBetterReadability{},
+		AlmostPalindromeFinderS1BF{},
+		AlmostPalindromeFinderS2Eff{},
+		AlmostPalindromeFinderS3EfficientBetterReadability{},
 		Prac1{},
 	)
 

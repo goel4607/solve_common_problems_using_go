@@ -1,4 +1,4 @@
-package findLargestElementAtPos
+package findKthLargestElement
 
 import (
 	"github.com/solve_common_problems_using_go"
@@ -68,7 +68,9 @@ func TestLargestElementFinderAtPos(t *testing.T) {
 	impls = append(
 		impls,
 		//S1BF{},
-		S2UsingQSelect{},
+		//S2UsingQSelect{},
+		//&Prac1{},
+		&Prac2UsingQS{},
 	)
 
 	tests := testData()
@@ -81,7 +83,7 @@ func TestLargestElementFinderAtPos(t *testing.T) {
 
 		for i, tt := range tests {
 
-			actualOpt := impl.findLargestElementAtPos(tt.input, tt.pos)
+			actualOpt := impl.findKthLargestElement(tt.input, tt.pos)
 			var pOrF string
 			if assert.Equal(t, tt.expectedOpt, actualOpt) {
 				pOrF = solve_common_problems_using_go.Passed
@@ -89,7 +91,7 @@ func TestLargestElementFinderAtPos(t *testing.T) {
 				pOrF = solve_common_problems_using_go.Failed
 			}
 
-			t.Logf("test # %d, %s input=%v and expected output=%v, %v", i+1, pOrF, tt.input, tt.expectedOpt, tt.info)
+			t.Logf("test # %d, %s input=[%v,k=%v] and expected output=%v, %v", i+1, pOrF, tt.input, tt.pos, tt.expectedOpt, tt.info)
 		}
 	}
 }

@@ -1,9 +1,9 @@
-package findLargestElementAtPos
+package findKthLargestElement
 
 type S2UsingQSelect struct {
 }
 
-func (s2 S2UsingQSelect) findLargestElementAtPos(arr []int, pos int) int {
+func (s2 S2UsingQSelect) findKthLargestElement(arr []int, pos int) int {
 	elmtPos := len(arr) - pos
 	myArr := make([]int, 0, len(arr))
 	myArr = append(myArr, arr...)

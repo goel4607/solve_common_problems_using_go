@@ -48,6 +48,7 @@ func TestTypedOutStringsEqualFinder(t *testing.T) {
 		impls,
 		RSVSolutionUsingBFS{},
 		RSVSolutionUsingDFS{},
+		RSVSolutionUsingDFSUsingArrLen{},
 	)
 
 	tests := getTests()

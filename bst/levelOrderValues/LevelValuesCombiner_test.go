@@ -45,7 +45,8 @@ func getTests() []LevelValuesCombinerTest {
 func TestTypedOutStringsEqualFinder(t *testing.T) {
 	impls = append(
 		impls,
-		S1LevelValuesCombinerImpl{},
+		SolutionUsingDFS{},
+		SolutionUsingBFS{},
 	)
 
 	assert.NotEmptyf(t, impls, "no implemantations present!!")
@@ -56,14 +57,14 @@ func TestTypedOutStringsEqualFinder(t *testing.T) {
 
 		for i, tt := range tests {
 
-			bst := &bst.Node{Data: tt.in[0]}
+			b := &bst.Node{Data: tt.in[0]}
 			for j, d := range tt.in {
 				if j != 0 {
-					bst.Insert(d)
+					b.Insert(d)
 				}
 			}
 
-			actualOpt := impl.combineValuesAtSameLevel(bst)
+			actualOpt := impl.combineValuesAtSameLevel(b)
 			assert.Equal(t, tt.out, actualOpt)
 
 			var pOrF string

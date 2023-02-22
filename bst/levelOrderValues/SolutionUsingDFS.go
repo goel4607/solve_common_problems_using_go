@@ -4,10 +4,10 @@ import (
 	"github.com/solve_common_problems_using_go/bst"
 )
 
-type S1LevelValuesCombinerImpl struct {
+type SolutionUsingDFS struct {
 }
 
-func (s1 S1LevelValuesCombinerImpl) combineValuesAtSameLevel(n *bst.Node) [][]int {
+func (s1 SolutionUsingDFS) combineValuesAtSameLevel(n *bst.Node) [][]int {
 	if n == nil {
 		return nil
 	}
@@ -25,7 +25,7 @@ func (s1 S1LevelValuesCombinerImpl) combineValuesAtSameLevel(n *bst.Node) [][]in
 	return lvlValsArr
 }
 
-func (s1 S1LevelValuesCombinerImpl) combineValuesAtSameLevelInorder(n *bst.Node, lvlValsMap map[int][]int, lvl int) {
+func (s1 SolutionUsingDFS) combineValuesAtSameLevelInorder(n *bst.Node, lvlValsMap map[int][]int, lvl int) {
 	if n != nil {
 		if lvlVals, ok := lvlValsMap[lvl]; !ok {
 			lvlVals := make([]int, 0)

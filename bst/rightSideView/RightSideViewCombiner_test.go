@@ -46,8 +46,8 @@ func getTests() []LevelValuesCombinerTest {
 func TestTypedOutStringsEqualFinder(t *testing.T) {
 	impls = append(
 		impls,
-		SolutionRSVUsingBFS{},
-		//SolutionUsingBFS{},
+		RSVSolutionUsingBFS{},
+		RSVSolutionUsingDFS{},
 	)
 
 	tests := getTests()

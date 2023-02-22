@@ -2,10 +2,10 @@ package rightSideView
 
 import "github.com/solve_common_problems_using_go/bst"
 
-type SolutionRSVUsingBFS struct {
+type RSVSolutionUsingBFS struct {
 }
 
-func (s1 SolutionRSVUsingBFS) combineRightSideView(n *bst.Node) []int {
+func (s1 RSVSolutionUsingBFS) combineRightSideView(n *bst.Node) []int {
 
 	q := bst.Queue{}
 	q.Enqueue(n)

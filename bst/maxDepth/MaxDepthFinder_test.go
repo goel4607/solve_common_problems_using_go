@@ -56,14 +56,14 @@ func TestTypedOutStringsEqualFinder(t *testing.T) {
 
 		for i, tt := range tests {
 
-			bst := &bst.Node{Data: tt.in[0]}
+			b := &bst.Node{Data: tt.in[0]}
 			for j, d := range tt.in {
 				if j != 0 {
-					bst.Insert(d)
+					b.Insert(d)
 				}
 			}
 
-			actualOpt := impl.findMaxDepth(bst)
+			actualOpt := impl.findMaxDepth(b)
 			assert.Equal(t, tt.out, actualOpt)
 
 			var pOrF string

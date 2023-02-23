@@ -32,17 +32,16 @@ func getTests() []NumNodesComputerTest {
 		},
 		{
 			msg: "Balanced tree with top 3 levels and only 1 node at last level.",
-			in:  []int{20, 10, 25, 5, 12, 22, 30, 1, 4, 11, 14, 21}, // 3 levels complete and 5 on the last level
+			in:  []int{20, 10, 25, 5, 12, 22, 30, 4, 6, 11, 14, 21}, // 3 levels complete and 5 on the last level
 			out: 12,
 		},
 	}
 }
 
-func TestTypedOutStringsEqualFinder(t *testing.T) {
+func TestNumNodesComputer(t *testing.T) {
 	impls = append(
 		impls,
-		//RSVSolutionUsingBFS{},
-		//RSVSolutionUsingDFS{},
+		Solution1NumNodesComputer{},
 	)
 
 	tests := getTests()
@@ -64,7 +63,6 @@ func TestTypedOutStringsEqualFinder(t *testing.T) {
 			}
 
 			actualOpt := impl.computeNumNodes(b)
-			assert.Equal(t, tt.out, actualOpt)
 
 			var pOrF string
 			if assert.Equal(t, tt.out, actualOpt) {

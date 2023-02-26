@@ -1,0 +1,1 @@
+Given a binary search tree with values in it, validate if the tree actually follows binary search tree rules like all nodes to the left of any node are less and all nodes to the right of any nodes are greater that its own value.

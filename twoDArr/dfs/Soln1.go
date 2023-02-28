@@ -23,20 +23,15 @@ var DIRECTIONS = []Position{
 }
 
 func (s Soln1) DFS(arr [][]int) []int {
-	visitedPos := s.initVisitedPos(arr)
-	r := make([]int, 0, len(arr)*len(arr))
-	r = append(r, arr[0][0])
-	visitedPos[0][0] = true
-	return s.visitDFS(arr, Position{0, 0}, visitedPos, r)
-}
-
-func (s Soln1) initVisitedPos(arr [][]int) [][]bool {
 	visitedPos := make([][]bool, len(arr), len(arr))
 	for i := range visitedPos {
 		visitedPos[i] = make([]bool, len(arr[i]), len(arr[i]))
 	}
 
-	return visitedPos
+	r := make([]int, 0, len(arr)*len(arr))
+	r = append(r, arr[0][0])
+	visitedPos[0][0] = true
+	return s.visitDFS(arr, Position{0, 0}, visitedPos, r)
 }
 
 func (s Soln1) visitDFS(arr [][]int, current Position, visitedPos [][]bool, r []int) []int {

@@ -1,4 +1,4 @@
-package arrangeGoodsByProperty
+package arrangeItemsByProperty
 
 import (
 	"github.com/solve_common_problems_using_go"
@@ -78,14 +78,15 @@ func testData() []ArrangeGoodsByPropertyTest {
 }
 
 var (
-	impls = make([]GoodsByPropertyArranger, 0)
+	impls = make([]Interface, 0)
 )
 
 func TestArrangeGoodsByPropertyImplementations(t *testing.T) {
 	impls =
 		append(impls,
-			&GoodsByPropertyArrangerSolution1{},
+			&ItemsByPropertyArrangerSolution1{},
 			&Prac1{},
+			&SolnPrac2{},
 		)
 	tests := testData()
 
@@ -97,7 +98,7 @@ func TestArrangeGoodsByPropertyImplementations(t *testing.T) {
 
 		for i, tt := range tests {
 
-			actual := impl.ArrangeGoodsByProperty(tt.data, tt.property)
+			actual := impl.Arrange(tt.data, tt.property)
 			var pOrF string
 			if assert.Equal(t, tt.expOpt, actual) {
 				pOrF = solve_common_problems_using_go.Passed

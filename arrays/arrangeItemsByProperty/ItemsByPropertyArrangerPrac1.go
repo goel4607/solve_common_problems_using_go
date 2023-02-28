@@ -1,4 +1,4 @@
-package arrangeGoodsByProperty
+package arrangeItemsByProperty
 
 import (
 	"container/heap"
@@ -10,7 +10,7 @@ type Prac1 struct {
 	propertyName string
 }
 
-func (h *Prac1) ArrangeGoodsByProperty(items []Item, propName string) []Item {
+func (h *Prac1) Arrange(items []Item, propName string) []Item {
 	h.propertyName = propName
 	for _, v := range items {
 		heap.Push(h, v)

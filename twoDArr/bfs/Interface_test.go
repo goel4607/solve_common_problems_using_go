@@ -14,6 +14,8 @@ var (
 type InterfaceTest struct {
 	msg string
 	in  [][]int
+	r   int
+	c   int
 	out []int
 }
 
@@ -27,7 +29,35 @@ func getTests() []InterfaceTest {
 				{11, 12, 13, 14, 15},
 				{16, 17, 18, 19, 20},
 			},
-			out: []int{1, 2, 3, 4, 5, 10, 15, 20, 19, 14, 9, 8, 13, 18, 17, 12, 7, 6, 11, 16},
+			r:   2,
+			c:   2,
+			out: []int{13, 8, 14, 18, 12, 3, 9, 7, 15, 19, 17, 11, 4, 2, 10, 6, 20, 16, 5, 1},
+		},
+		{
+			msg: "5 by 5 array, with inc elements on each row",
+			in: [][]int{
+				{1, 2, 3, 4, 5},
+				{6, 7, 8, 9, 10},
+				{11, 12, 13, 14, 15},
+				{16, 17, 18, 19, 20},
+				{21, 22, 23, 24, 25},
+			},
+			r:   2,
+			c:   2,
+			out: []int{13, 8, 14, 18, 12, 3, 9, 7, 15, 19, 23, 17, 11, 4, 2, 10, 6, 20, 24, 22, 16, 5, 1, 25, 21},
+		},
+		{
+			msg: "5 by 5 array, with inc elements on each row",
+			in: [][]int{
+				{1, 2, 3, 4, 5},
+				{6, 7, 8, 9, 10},
+				{11, 12, 13, 14, 15},
+				{16, 17, 18, 19, 20},
+				{21, 22, 23, 24, 25},
+			},
+			r:   0,
+			c:   0,
+			out: []int{1, 2, 6, 3, 7, 11, 4, 8, 12, 16, 5, 9, 13, 17, 21, 10, 14, 18, 22, 15, 19, 23, 20, 24, 25},
 		},
 	}
 }
@@ -35,7 +65,7 @@ func getTests() []InterfaceTest {
 func TestInterface(t *testing.T) {
 	impls = append(
 		impls,
-		//Soln1{},
+		Soln1{},
 	)
 
 	tests := getTests()
@@ -49,7 +79,7 @@ func TestInterface(t *testing.T) {
 
 		for i, tt := range tests {
 
-			a := impl.BFS(tt.in)
+			a := impl.BFS(tt.in, tt.r, tt.c)
 
 			var pOrF string
 			if assert.Equal(t, tt.out, a) {

@@ -86,6 +86,7 @@ func (s Soln1) markAdjoiningLandAsPartOfThisIsland(p Position, arr [][]int, visi
 	}
 }
 
+// isValidMovement checks if the position is within array bounds, is land and has not been visited before
 func (s Soln1) isValidMovement(p Position, arr [][]int, visited [][]bool) bool {
 	if p.r >= 0 && p.r < len(arr) {
 		if p.c >= 0 && p.c < len(arr[0]) {

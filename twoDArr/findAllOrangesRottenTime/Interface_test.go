@@ -20,7 +20,7 @@ type InterfaceTest struct {
 func getTests() []InterfaceTest {
 	return []InterfaceTest{
 		{
-			msg: "5 by 4 array",
+			msg: "5 by 4 array with only 1 Rotten Orange and no isolated oranges.",
 			in: [][]int{
 				{2, 1, 1, 0, 0},
 				{1, 1, 1, 0, 0},
@@ -30,7 +30,7 @@ func getTests() []InterfaceTest {
 			out: 7,
 		},
 		{
-			msg: "5 by 4 array",
+			msg: "5 by 4 array with 1 isolated orange which can never be rotten",
 			in: [][]int{
 				{1, 1, 0, 0, 0},
 				{2, 1, 0, 0, 0},

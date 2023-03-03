@@ -5,9 +5,9 @@ import "math"
 const (
 	WALL = iota
 	GATE
-	INF = math.MaxInt32
+	INF = math.MaxInt32 //represents infinity; the default value in each room
 )
 
 type Interface interface {
-	fillRoomsWithNumHopsToNearsestGate(arr [][]int)
+	FillRoomsWithNumHopsToNearestGate(arr [][]int)
 }

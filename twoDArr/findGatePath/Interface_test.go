@@ -66,7 +66,7 @@ func getTests() []InterfaceTest {
 func TestInterface(t *testing.T) {
 	impls = append(
 		impls,
-		//Soln1{},
+		Soln1{},
 	)
 
 	tests := getTests()
@@ -80,7 +80,7 @@ func TestInterface(t *testing.T) {
 
 		for i, tt := range tests {
 
-			impl.fillRoomsWithNumHopsToNearsestGate(tt.in)
+			impl.FillRoomsWithNumHopsToNearestGate(tt.in)
 
 			var pOrF string
 			if assert.Equal(t, tt.out, tt.in) {

@@ -40,6 +40,16 @@ func getTests() []InterfaceTest {
 			out: -1,
 		},
 		{
+			msg: "5 by 4 array with 1 isolated orange which can never be rotten",
+			in: [][]int{
+				{2, 0, 0, 0, 0},
+				{1, 1, 0, 0, 2},
+				{0, 1, 1, 1, 1},
+				{0, 1, 0, 0, 1},
+			},
+			out: 4,
+		},
+		{
 			msg: "empty array with no elements",
 			in:  [][]int{},
 			out: 0,

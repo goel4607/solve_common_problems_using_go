@@ -12,12 +12,10 @@ func (s1 Soln1BruteForce) isItPossibleToFinishAllCourses(n int, prereqs []Course
 	//create an adjacency list out of pre-requisites
 	g := s1.prepareAdjacencyListGraph(n, prereqs)
 
-	deps := make(map[int]bool, 0)
-
 	//iterate over all the n courses
 	for i := 0; i < n; i++ {
 		//create a new set of dependent courses
-		//deps := make(map[int]bool, 0)
+		deps := make(map[int]bool, 0)
 
 		//traversing using bfs
 		q := make([]int, 0)
@@ -31,6 +29,9 @@ func (s1 Soln1BruteForce) isItPossibleToFinishAllCourses(n int, prereqs []Course
 				return false
 			}
 
+			if len(g[d]) == 0 {
+				continue //ignore the course if it is not a pre-requisite of any course i.e. no course is dependent on it
+			}
 			deps[d] = true //make the pre-req
 			//iterate each course's adjacency list
 			for _, v := range g[d] {

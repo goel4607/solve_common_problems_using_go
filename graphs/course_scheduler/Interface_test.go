@@ -22,6 +22,7 @@ func getTests() []InterfaceTest {
 	return []InterfaceTest{
 		{
 			msg: "+ve, course dependency with no cycle.",
+			n:   7,
 			preReqs: []CourseDependency{
 				0: {1, 0},
 				1: {2, 1},
@@ -35,6 +36,7 @@ func getTests() []InterfaceTest {
 		},
 		{
 			msg: "+ve, course dependency with one cycle.",
+			n:   7,
 			preReqs: []CourseDependency{
 				0: {1, 0},
 				1: {2, 1},
@@ -44,10 +46,11 @@ func getTests() []InterfaceTest {
 				5: {4, 3},
 				6: {4, 5},
 			},
-			out: true,
+			out: false,
 		},
 		{
 			msg: "-ve, course dependency with one cycle.",
+			n:   7,
 			preReqs: []CourseDependency{
 				0: {1, 0},
 				1: {2, 1},
@@ -57,10 +60,11 @@ func getTests() []InterfaceTest {
 				5: {4, 3},
 				6: {5, 4},
 			},
-			out: true,
+			out: false,
 		},
 		{
 			msg: "-ve, course dependency with two cycles.",
+			n:   7,
 			preReqs: []CourseDependency{
 				0: {1, 0},
 				1: {2, 1},
@@ -70,7 +74,21 @@ func getTests() []InterfaceTest {
 				5: {4, 3},
 				6: {5, 4},
 			},
+			out: false,
+		},
+		{
+			msg: "-ve, course dependency with two cycles.",
+			n:   1,
+			preReqs: []CourseDependency{
+				0: {1, 0},
+			},
 			out: true,
+		},
+		{
+			msg:     "-ve, course dependency with two cycles.",
+			n:       0,
+			preReqs: []CourseDependency{},
+			out:     true,
 		},
 	}
 }
@@ -101,7 +119,7 @@ func TestInterface(t *testing.T) {
 				pOrF = solve_common_problems_using_go.Failed
 			}
 
-			t.Logf("test # %d, %s input=%v and expected output=%v, %v", i+1, pOrF, tt.preReqs, tt.out, tt.msg)
+			t.Logf("test # %d, %s input(s): [n=%v, pre-reqs=%v] and expected output=%v, %v", i+1, pOrF, tt.n, tt.preReqs, tt.out, tt.msg)
 		}
 	}
 }

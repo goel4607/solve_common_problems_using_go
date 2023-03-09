@@ -97,6 +97,8 @@ func TestInterface(t *testing.T) {
 	impls = append(
 		impls,
 		Soln1BruteForce{},
+		Soln2TopSort{},
+		Soln3TopSortEfficient{},
 	)
 
 	tests := getTests()

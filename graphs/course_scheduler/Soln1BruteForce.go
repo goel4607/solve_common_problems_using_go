@@ -3,14 +3,14 @@ package course_scheduler
 type Soln1BruteForce struct {
 }
 
-func (s1 Soln1BruteForce) isItPossibleToFinishAllCourses(n int, prereqs []CourseDependency) bool {
+func (s1 Soln1BruteForce) isItPossibleToFinishAllCourses(n int, preReqs []CourseDependency) bool {
 	//check for null condition
 	if n <= 1 {
 		return true
 	}
 
 	//create an adjacency list out of pre-requisites
-	g := s1.prepareAdjacencyListGraph(n, prereqs)
+	g := s1.prepareAdjacencyListGraph(n, preReqs)
 
 	//iterate over all the n courses
 	for i := 0; i < n; i++ {

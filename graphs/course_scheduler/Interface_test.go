@@ -78,7 +78,7 @@ func getTests() []InterfaceTest {
 func TestInterface(t *testing.T) {
 	impls = append(
 		impls,
-		//Soln1{},
+		Soln1BruteForce{},
 	)
 
 	tests := getTests()
@@ -92,10 +92,10 @@ func TestInterface(t *testing.T) {
 
 		for i, tt := range tests {
 
-			impl.isItPossibleToFinishAllCourses(tt.n, tt.preReqs)
+			actual := impl.isItPossibleToFinishAllCourses(tt.n, tt.preReqs)
 
 			var pOrF string
-			if assert.Equal(t, tt.out, tt.preReqs) {
+			if assert.Equal(t, tt.out, actual) {
 				pOrF = solve_common_problems_using_go.Passed
 			} else {
 				pOrF = solve_common_problems_using_go.Failed

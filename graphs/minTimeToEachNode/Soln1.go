@@ -85,11 +85,6 @@ func updateValueIfPresent(h *NodeWeightsHeap, nw NodeWeight) {
 	}
 }
 
-type NodeWeight struct {
-	index  int
-	weight int
-}
-
 type NodeWeightsHeap []NodeWeight
 
 func (h NodeWeightsHeap) Len() int {

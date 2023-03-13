@@ -6,6 +6,11 @@ type Node struct {
 	weight int
 }
 
+type NodeWeight struct {
+	index  int
+	weight int
+}
+
 type Interface interface {
 	findMinTime(n, start int, adjList []Node) int
 }

@@ -71,7 +71,8 @@ func TestLargestElementFinderAtPos(t *testing.T) {
 		//S2UsingQSelect{},
 		//&Prac1{},
 		//&Prac2UsingQS{},
-		&Prac23Week11UsingPQ{},
+		//&Prac23Week11UsingPQ{},
+		&Prac23Week11UsingQSelect{},
 	)
 
 	tests := testData()

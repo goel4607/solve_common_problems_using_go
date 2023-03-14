@@ -63,6 +63,7 @@ func TestInterface(t *testing.T) {
 	impls = append(
 		impls,
 		Soln1{},
+		Prac1{},
 	)
 
 	tests := getTests()

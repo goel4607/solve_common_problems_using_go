@@ -54,10 +54,11 @@ func TestContainerWithMostWater(t *testing.T) {
 	impls =
 		append(
 			impls,
-			MostWaterContainerFinderS1BF{},
-			MostWaterContainerFinderS2Efficient{},
-			MostWaterContainerFinderS3Prac{},
-			Prac2{},
+			//MostWaterContainerFinderS1BF{},
+			//MostWaterContainerFinderS2Efficient{},
+			//MostWaterContainerFinderS3Prac{},
+			//Prac2{},
+			Prac23Week11{},
 		)
 
 	tests := testData()

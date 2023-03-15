@@ -47,8 +47,9 @@ var (
 func TestMNReverserImplementations(t *testing.T) {
 	impls =
 		append(impls,
-			&MNReverserS1BF{},
+			//&MNReverserS1BF{},
 			//&ReverserS2Repeat{},
+			Prac23Week11{},
 		)
 
 	tests := testData()

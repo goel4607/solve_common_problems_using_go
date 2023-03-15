@@ -39,8 +39,9 @@ func testData() []QueueTest {
 func TestQuestImplementations(t *testing.T) {
 	impls =
 		append(impls,
-			&Solution1{},
-			&Solution2QUsingStack{},
+			//&Solution1{},
+			//&Solution2QUsingStack{},
+			&Prac23Week11{},
 		)
 
 	tests := testData()

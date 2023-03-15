@@ -4,7 +4,7 @@ type Solution2FastSlowPtrs struct {
 }
 
 func (s2 Solution2FastSlowPtrs) detectCycle(h *CNode) bool {
-	if h == nil {
+	if h == nil || h.Next == nil {
 		return false
 	}
 
@@ -13,7 +13,7 @@ func (s2 Solution2FastSlowPtrs) detectCycle(h *CNode) bool {
 
 	for slow != fast {
 		slow = slow.Next
-		if fast.Next != nil && fast.Next.Next != nil {
+		if fast != nil && fast.Next != nil {
 			fast = fast.Next.Next
 		} else {
 			return false

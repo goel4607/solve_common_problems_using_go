@@ -24,6 +24,16 @@ func testData() []CycleDetectorTest {
 			true,
 		},
 		{
+			"normal test data with m and m in-between values",
+			[]any{1, 2},
+			false,
+		},
+		{
+			"normal test data with m and m in-between values",
+			[]any{1},
+			false,
+		},
+		{
 			"normal test data with n as the last value",
 			[]any{1, 2, 3, 4, 5, 6, 7},
 			false,
@@ -40,7 +50,8 @@ func TestMNReverserImplementations(t *testing.T) {
 	cycleDetectorImpls = append(
 		cycleDetectorImpls,
 		//Solution1BruteForce{},
-		Solution2FastSlowPtrs{},
+		//Solution2FastSlowPtrs{},
+		Prac23Week11{},
 	)
 
 	tests := testData()

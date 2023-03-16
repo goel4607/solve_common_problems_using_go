@@ -87,7 +87,8 @@ func TestInterface(t *testing.T) {
 	impls = append(
 		impls,
 		//Soln1UsingBfs{},
-		Prac23Week11UsingBfs{},
+		//Prac23Week11UsingBfs{},
+		Prac23Week11UsingDFS{},
 	)
 
 	tests := getTests()

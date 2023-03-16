@@ -21,6 +21,11 @@ func getTests() []MaxDepthFinderTest {
 	return []MaxDepthFinderTest{
 		{
 			msg: "Tree is almost flat i.e. only one node at each level.",
+			in:  []int{1},
+			out: 1,
+		},
+		{
+			msg: "Tree is almost flat i.e. only one node at each level.",
 			in:  []int{1, 2, 3, 4, 5},
 			out: 5,
 		},
@@ -45,7 +50,8 @@ func getTests() []MaxDepthFinderTest {
 func TestTypedOutStringsEqualFinder(t *testing.T) {
 	impls = append(
 		impls,
-		S1MaxDepthFinder{},
+		//S1MaxDepthFinder{},
+		Prac23Week11UsingDFS{},
 	)
 
 	assert.NotEmptyf(t, impls, "no implemantations present!!")

@@ -45,8 +45,9 @@ func getTests() []LevelValuesCombinerTest {
 func TestTypedOutStringsEqualFinder(t *testing.T) {
 	impls = append(
 		impls,
-		SolutionUsingDFS{},
-		SolutionUsingBFS{},
+		//SolutionUsingDFS{},
+		//SolutionUsingBFS{},
+		Prac23Week11BFS{},
 	)
 
 	assert.NotEmptyf(t, impls, "no implemantations present!!")

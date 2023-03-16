@@ -46,7 +46,8 @@ func TestBSTValidator(t *testing.T) {
 
 	impls = append(
 		impls,
-		&Solution1BSTValidator{},
+		//&Solution1BSTValidator{},
+		Prac23Week11{},
 	)
 
 	tests := getTests()

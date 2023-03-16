@@ -41,7 +41,8 @@ func getTests() []NumNodesComputerTest {
 func TestNumNodesComputer(t *testing.T) {
 	impls = append(
 		impls,
-		Solution1NumNodesComputer{},
+		//Solution1NumNodesComputer{},
+		Prac23Week11{},
 	)
 
 	tests := getTests()
@@ -62,7 +63,7 @@ func TestNumNodesComputer(t *testing.T) {
 				}
 			}
 
-			actualOpt := impl.computeNumNodes(b)
+			actualOpt := impl.ComputeNumNodes(b)
 
 			var pOrF string
 			if assert.Equal(t, tt.out, actualOpt) {

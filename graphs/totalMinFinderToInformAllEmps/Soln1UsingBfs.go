@@ -1,10 +1,10 @@
 package totalMinFinderToInformAllEmps
 
-type Soln1 struct {
+type Soln1UsingBfs struct {
 }
 
 //goland:noinspection SpellCheckingInspection
-func (s Soln1) findTotalMinutesToInformAllEmps(headId int, mgrs, informTime []int) int {
+func (s Soln1UsingBfs) findTotalMinutesToInformAllEmps(headId int, mgrs, informTime []int) int {
 	if len(mgrs) <= 1 {
 		return 0
 	}
@@ -45,7 +45,7 @@ func (s Soln1) findTotalMinutesToInformAllEmps(headId int, mgrs, informTime []in
 	return totalTime
 }
 
-func (s Soln1) makeAdjListGraph(mgrs []int, headId int) [][]int {
+func (s Soln1UsingBfs) makeAdjListGraph(mgrs []int, headId int) [][]int {
 	g := make([][]int, len(mgrs), len(mgrs))
 
 	for i, v := range mgrs {

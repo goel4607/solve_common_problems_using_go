@@ -20,8 +20,9 @@ var (
 func TestReverserImplementations(t *testing.T) {
 	impls =
 		append(impls,
-			&ReverserS1BF{},
-			&ReverserS2Repeat{},
+			//&ReverserS1BF{},
+			//&ReverserS2Repeat{},
+			&Prac23Week11{},
 		)
 
 	tests := testData()

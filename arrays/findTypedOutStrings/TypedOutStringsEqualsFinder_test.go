@@ -36,11 +36,12 @@ func getTests() []TypedOutStringTest {
 func TestTypedOutStringsEqualFinder(t *testing.T) {
 	impls = append(
 		impls,
-		TypedOutStringsEqualsFinderS1Bf{},
-		TypedOutStringsEqualsFindersS2Efficient{},
-		TypedOutStringsEqualsFindersS3EfficientSimplified{},
-		TypedOutStringsEqualFinderS4Prac1{},
-		TypedOutStringsEqualsFinderS4Prac2{},
+		//TypedOutStringsEqualsFinderS1Bf{},
+		//TypedOutStringsEqualsFindersS2Efficient{},
+		//TypedOutStringsEqualsFindersS3EfficientSimplified{},
+		//TypedOutStringsEqualFinderS4Prac1{},
+		//TypedOutStringsEqualsFinderS4Prac2{},
+		Prac23Week11{},
 	)
 
 	tests := getTests()

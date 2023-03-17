@@ -1,0 +1,5 @@
+1. Can the graph be unconnected?
+Yes, account for an unconnected graph. Return -1 in this case.
+
+2. Can the time be negative integers? i.e. can the weights be negative?
+No, the weight of edges is always positive.

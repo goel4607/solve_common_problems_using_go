@@ -55,9 +55,10 @@ func tellMeTestsToRun() []TwoSumTest {
 func TestFindTwoSumsPositive(t *testing.T) {
 	impls = append(
 		impls,
-		TwoSumFinderSolution1BF{},
-		TwoSumFinderS2Efficient{},
-		TwoSumFinderS3{},
+		//TwoSumFinderSolution1BF{},
+		//TwoSumFinderS2Efficient{},
+		//TwoSumFinderS3{},
+		Prac23Week11{},
 	)
 
 	tests := tellMeTestsToRun()

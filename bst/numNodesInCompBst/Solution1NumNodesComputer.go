@@ -8,7 +8,7 @@ import (
 type Solution1NumNodesComputer struct {
 }
 
-func (s Solution1NumNodesComputer) computeNumNodes(n *bst.Node) int {
+func (s Solution1NumNodesComputer) ComputeNumNodes(n *bst.Node) int {
 	// find the height of the tree. If only one node then height = 0
 	h := s.computeHeight(n)
 	if h == -1 {

@@ -54,8 +54,9 @@ var (
 func TestMNReverserImplementations(t *testing.T) {
 	impls =
 		append(impls,
-			Solution1{},
-			Solution2{},
+			//Solution1{},
+			//Solution2{},
+			Prac23Week11{},
 		)
 	tests := testData()
 	t.Logf("Given a string only containing round brackets '(' and ')' and lowercase characters, remove the least"+

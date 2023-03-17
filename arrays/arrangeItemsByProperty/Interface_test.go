@@ -50,7 +50,7 @@ func testData() []ArrangeGoodsByPropertyTest {
 				{"Rice", 100},
 				{"Potato", 45},
 			},
-			"",
+			"expiryTimeInDays",
 			[]Item{
 				{"Spinach", 5},
 				{"Carrot", 30},
@@ -87,6 +87,7 @@ func TestArrangeGoodsByPropertyImplementations(t *testing.T) {
 			&ItemsByPropertyArrangerSolution1{},
 			&Prac1{},
 			&SolnPrac2{},
+			&Prac23Week11{},
 		)
 	tests := testData()
 

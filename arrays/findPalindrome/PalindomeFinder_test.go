@@ -12,9 +12,10 @@ var (
 
 func TestPalindrome(t *testing.T) {
 	impls = append(impls,
-		PalindromeFinderS1LeftAndRightPts{},
-		PalindromeFinderS2ReverseComp{},
-		PalindromeFinderS3CenterExpand{},
+		//PalindromeFinderS1LeftAndRightPts{},
+		//PalindromeFinderS2ReverseComp{},
+		//PalindromeFinderS3CenterExpand{},
+		Prac23Week11{},
 	)
 
 	for _, impl := range impls {

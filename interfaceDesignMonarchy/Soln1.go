@@ -23,13 +23,13 @@ func (n *Node) findNode(name string) *Node {
 	return nil
 }
 
-func (n *Node) traverseInorder(names []string) []string {
+func (n *Node) traversePreorder(names []string) []string {
 	if !n.isDead {
 		names = append(names, n.name)
 	}
 
 	for _, c := range n.children {
-		names = c.traverseInorder(names)
+		names = c.traversePreorder(names)
 	}
 
 	return names
@@ -69,5 +69,5 @@ func (s *Soln1) Death(name string) error {
 }
 
 func (s *Soln1) GetOrderOfSuccession() []string {
-	return s.hier.traverseInorder(make([]string, 0))
+	return s.hier.traversePreorder(make([]string, 0))
 }

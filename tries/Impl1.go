@@ -8,9 +8,9 @@ const (
 )
 
 type TrieNode struct {
-	C        rune
-	IsEnd    bool
-	Children [NumAlphabets]*TrieNode
+	c        rune
+	isEnd    bool
+	children [NumAlphabets]*TrieNode
 }
 
 func (n *TrieNode) getRelativePosition(c rune) int {
@@ -20,12 +20,11 @@ func (n *TrieNode) getRelativePosition(c rune) int {
 func (n *TrieNode) addChar(c rune, isEnding bool) *TrieNode {
 	arrIdx := n.getRelativePosition(c)
 	newChar := &TrieNode{
-		C:        c,
-		IsEnd:    isEnding,
-		Children: [26]*TrieNode{},
+		c:     c,
+		isEnd: isEnding,
 	}
 
-	n.Children[arrIdx] = newChar
+	n.children[arrIdx] = newChar
 
 	return newChar
 }
@@ -33,17 +32,17 @@ func (n *TrieNode) addChar(c rune, isEnding bool) *TrieNode {
 func (n *TrieNode) addCharIfNotPresent(c rune, isEnding bool) *TrieNode {
 	arrIdx := n.getRelativePosition(c)
 
-	if n.Children[arrIdx] == nil {
+	if n.children[arrIdx] == nil {
 		newChar := &TrieNode{
-			C:     c,
-			IsEnd: isEnding,
+			c:     c,
+			isEnd: isEnding,
 		}
 
-		n.Children[arrIdx] = newChar
+		n.children[arrIdx] = newChar
 		return newChar
 	}
 
-	return n.Children[arrIdx]
+	return n.children[arrIdx]
 }
 
 func (n *TrieNode) Insert(s string) {
@@ -73,7 +72,7 @@ func (n *TrieNode) checkStringForPresence(s string, checkPrefixOnly bool) bool {
 	for _, c := range s {
 		charIdx := n.getRelativePosition(c)
 
-		cNode := t.Children[charIdx]
+		cNode := t.children[charIdx]
 		if cNode == nil {
 			return false
 		}
@@ -84,7 +83,7 @@ func (n *TrieNode) checkStringForPresence(s string, checkPrefixOnly bool) bool {
 	if checkPrefixOnly {
 		return true
 	} else {
-		if t.IsEnd {
+		if t.isEnd {
 			return true
 		} else {
 			return false

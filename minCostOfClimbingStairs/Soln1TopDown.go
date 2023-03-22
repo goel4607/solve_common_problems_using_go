@@ -11,7 +11,6 @@ func (s *Soln1) findMinCostOfClimbingStairs(cost []int) (int, int) {
 	mem := make(map[int]int)
 
 	return int(math.Min(float64(s.findMinCost(cost, n-1, mem)), float64(s.findMinCost(cost, n-2, mem)))), s.numCalls
-	//return s.findMinCost(cost, len(cost), make(map[int]int)), s.numCalls
 }
 
 func (s *Soln1) findMinCost(cost []int, n int, mem map[int]int) int {

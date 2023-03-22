@@ -37,9 +37,11 @@ func TestBSTValidator(t *testing.T) {
 
 	impls = append(
 		impls,
-		&Soln1WithoutMemoization{},
-		&Soln1MemUsingArr{},
-		&Soln1{},
+		//&Soln1WithoutMemoization{},
+		//&Soln1MemUsingArr{},
+		//&Soln1{},
+		//&Soln1BtmUp{},
+		&Soln1BtmUpWithMem{},
 	)
 
 	tests := getTests()

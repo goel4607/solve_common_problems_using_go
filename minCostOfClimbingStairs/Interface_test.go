@@ -29,7 +29,7 @@ func getTests() []InterfaceTest {
 	}
 }
 
-func TestBSTValidator(t *testing.T) {
+func TestMinCostOfClimbingStairs(t *testing.T) {
 	// print the problem
 	bytes, err := os.ReadFile("problem.md")
 	assert.Nil(t, err)

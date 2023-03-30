@@ -9,7 +9,7 @@ func (s Soln2TopSort) isItPossibleToFinishAllCourses(n int, preReqs []CourseDepe
 	}
 	courseInDegMap := s.convertToInDegreeMaps(n, preReqs)
 
-	visitedZeroDegCourses := make([]bool, 0)
+	visitedZeroDegCourses := make(map[int]bool, 0)
 
 	for {
 		beforeZeroDeg := len(visitedZeroDegCourses)

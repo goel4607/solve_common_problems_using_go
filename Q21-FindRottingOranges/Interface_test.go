@@ -40,7 +40,7 @@ func getTests() []InterfaceTest {
 			out: -1,
 		},
 		{
-			msg: "5 by 4 array with 1 isolated orange which can never be rotten",
+			msg: "5 by 4 array",
 			in: [][]int{
 				{2, 0, 0, 0, 0},
 				{1, 1, 0, 0, 2},
@@ -68,7 +68,8 @@ func getTests() []InterfaceTest {
 func TestInterface(t *testing.T) {
 	impls = append(
 		impls,
-		Soln1{},
+		//Soln1{},
+		Prac23Apr{},
 	)
 
 	tests := getTests()

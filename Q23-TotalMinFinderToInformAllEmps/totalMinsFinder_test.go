@@ -88,7 +88,8 @@ func TestInterface(t *testing.T) {
 		impls,
 		//Soln1UsingBfs{},
 		//Prac23Week11UsingBfs{},
-		Prac23Week11UsingDFS{},
+		//Prac23Week11UsingDFS{},
+		Prac23AprDFS{},
 	)
 
 	tests := getTests()
@@ -102,7 +103,7 @@ func TestInterface(t *testing.T) {
 
 		for i, tt := range tests {
 
-			aTotalTime := impl.findTotalMinutesToInformAllEmps(tt.headID, tt.managers, tt.informTime)
+			aTotalTime := impl.FindTotalMinutesToInformAllEmps(tt.headID, tt.managers, tt.informTime)
 
 			var pOrF string
 			if assert.Equal(t, tt.expectedTotalTime, aTotalTime) {

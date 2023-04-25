@@ -102,7 +102,7 @@ func TestInterface(t *testing.T) {
 
 		for i, tt := range tests {
 
-			aTotalTime := impl.findTotalMinutesToInformAllEmps(tt.headID, tt.managers, tt.informTime)
+			aTotalTime := impl.FindTotalMinutesToInformAllEmps(tt.headID, tt.managers, tt.informTime)
 
 			var pOrF string
 			if assert.Equal(t, tt.expectedTotalTime, aTotalTime) {

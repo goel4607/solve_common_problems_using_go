@@ -3,7 +3,7 @@ package Q23_TotalMinFinderToInformAllEmps
 type Prac23Week11UsingDFS struct {
 }
 
-func (p Prac23Week11UsingDFS) findTotalMinutesToInformAllEmps(headId int, mgrs, informTime []int) int {
+func (p Prac23Week11UsingDFS) FindTotalMinutesToInformAllEmps(headId int, mgrs, informTime []int) int {
 	if len(mgrs) <= 1 {
 		return 0
 	}

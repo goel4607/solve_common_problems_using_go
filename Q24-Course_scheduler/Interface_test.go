@@ -78,7 +78,7 @@ func getTests() []InterfaceTest {
 		},
 		{
 			msg: "-ve, course dependency with two cycles.",
-			n:   1,
+			n:   2,
 			preReqs: []CourseDependency{
 				0: {1, 0},
 			},
@@ -96,9 +96,10 @@ func getTests() []InterfaceTest {
 func TestInterface(t *testing.T) {
 	impls = append(
 		impls,
-		Soln1BruteForce{},
-		Soln2TopSort{},
-		Soln3TopSortEfficient{},
+		//Soln1BruteForce{},
+		//Soln2TopSort{},
+		//Soln3TopSortEfficient{},
+		Prac23AprTopSort{},
 	)
 
 	tests := getTests()

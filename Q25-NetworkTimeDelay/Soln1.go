@@ -8,18 +8,15 @@ import (
 type Soln1 struct {
 }
 
-func (s Soln1) findMinTime(n, start int, nodes []Node) int {
+func (s Soln1) FindMinTime(n, start int, nodes []Node) int {
 	g := s.createAdjList(n, nodes)
 
 	minWeights := make([]int, n, n)
-	//set the max value for each weight
 	for i := range minWeights {
-		if i == start {
-			minWeights[i] = 0 //weight to reach itself
-			continue
-		}
-		minWeights[i] = math.MaxInt32
+		minWeights[i] = math.MaxInt32 //set the max value for each Weight
 	}
+
+	minWeights[start] = 0 //Weight to reach itself
 
 	finalNodes := make([]bool, n, n)
 
@@ -41,7 +38,7 @@ func (s Soln1) findMinTime(n, start int, nodes []Node) int {
 				continue //ignore the finalized node indexes
 			}
 
-			v.weight = v.weight + prev.weight // add the weight till the current node
+			v.weight = v.weight + prev.weight // add the Weight till the current node
 			updateValueIfPresent(h, v)
 		}
 	}
@@ -116,24 +113,24 @@ func (h *NodeWeightsHeap) Pop() any {
 }
 
 // here each node has 3 values:
-// [0] -> start node,
-// [1] -> end node,
-// [2] -> weight
+// [0] -> Start node,
+// [1] -> End node,
+// [2] -> Weight
 func (s Soln1) createAdjList(n int, nodes []Node) [][]NodeWeight {
 	g := make([][]NodeWeight, n, n)
 
 	for _, v := range nodes {
 
 		var adjList []NodeWeight
-		if len(g[v.start]) == 0 {
+		if len(g[v.Start]) == 0 {
 			adjList = make([]NodeWeight, 0)
 		} else {
-			adjList = g[v.start]
+			adjList = g[v.Start]
 		}
 
-		adjList = append(adjList, NodeWeight{index: v.end, weight: v.weight})
+		adjList = append(adjList, NodeWeight{index: v.End, weight: v.Weight})
 
-		g[v.start] = adjList
+		g[v.Start] = adjList
 	}
 
 	return g

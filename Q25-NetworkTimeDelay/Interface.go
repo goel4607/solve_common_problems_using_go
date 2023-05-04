@@ -1,9 +1,9 @@
 package Q25_NetworkTimeDelay
 
 type Node struct {
-	start  int
-	end    int
-	weight int
+	Start  int
+	End    int
+	Weight int
 }
 
 type NodeWeight struct {
@@ -12,5 +12,5 @@ type NodeWeight struct {
 }
 
 type Interface interface {
-	findMinTime(n, start int, adjList []Node) int
+	FindMinTime(n, k int, times []Node) int
 }

@@ -13,7 +13,7 @@ type NodeDist struct {
 	dist   int
 }
 
-func (p1 Prac1) findMinTime(n, start int, nodes []Node) int {
+func (p1 Prac1) FindMinTime(n, start int, nodes []Node) int {
 	//prepare the adjacency list
 	g := p1.prepareAdjacencyList(n, nodes)
 	//apply dijkstra algorithm to find the shortest path
@@ -74,7 +74,7 @@ func (p1 Prac1) findMinTime(n, start int, nodes []Node) int {
 // if it is already present in the PQ, then update its PQ entry if its new distance is less than the one stored in PQ
 // otherwise add the new entry
 // take care of updating the dist array also
-// end of PQ
+// End of PQ
 func (p1 Prac1) updatePQ(h *PQNodeDist, adjNode NodeDist, dists []int) {
 	var values []NodeDist
 
@@ -100,13 +100,13 @@ func (p1 Prac1) updatePQ(h *PQNodeDist, adjNode NodeDist, dists []int) {
 func (p1 Prac1) prepareAdjacencyList(n int, nodes []Node) [][]NodeDist {
 	g := make([][]NodeDist, n, n)
 	for _, v := range nodes {
-		adjNodes := g[v.start]
-		if len(g[v.start]) == 0 {
+		adjNodes := g[v.Start]
+		if len(g[v.Start]) == 0 {
 			adjNodes = make([]NodeDist, 0)
 		}
 
-		adjNodes = append(adjNodes, NodeDist{target: v.end, dist: v.weight})
-		g[v.start] = adjNodes
+		adjNodes = append(adjNodes, NodeDist{target: v.End, dist: v.Weight})
+		g[v.Start] = adjNodes
 	}
 
 	return g

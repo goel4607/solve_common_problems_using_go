@@ -1,21 +1,22 @@
-package Q25_NetworkTimeDelay
+package negativeValues
 
 import (
 	"github.com/solve_common_problems_using_go"
+	Q25_NetworkTimeDelay "github.com/solve_common_problems_using_go/Q25-NetworkTimeDelay"
 	"github.com/stretchr/testify/assert"
 	"os"
 	"testing"
 )
 
 var (
-	impls = make([]Interface, 0)
+	impls = make([]Q25_NetworkTimeDelay.Interface, 0)
 )
 
 type InterfaceTest struct {
 	msg          string
 	n            int
 	startingNode int
-	eachNodeTime []Node
+	eachNodeTime []Q25_NetworkTimeDelay.Node
 	out          int
 }
 
@@ -25,7 +26,23 @@ func getTests() []InterfaceTest {
 			msg:          "+ve, all reachable nodes.",
 			n:            5,
 			startingNode: 0,
-			eachNodeTime: []Node{
+			eachNodeTime: []Q25_NetworkTimeDelay.Node{
+				0: {0, 1, 9}, // 1 ---9---> 2
+				1: {0, 3, 2},
+				2: {1, 4, -3},
+				3: {3, 1, -4},
+				4: {3, 4, 6},
+				5: {2, 1, 3},
+				6: {4, 2, 7},
+				7: {2, 0, 5},
+			},
+			out: 2,
+		},
+		{
+			msg:          "+ve, all reachable nodes.",
+			n:            5,
+			startingNode: 0,
+			eachNodeTime: []Q25_NetworkTimeDelay.Node{
 				0: {0, 1, 9}, // 1 ---9---> 2
 				1: {0, 3, 2},
 				2: {1, 4, 1},
@@ -41,7 +58,7 @@ func getTests() []InterfaceTest {
 			msg:          "-ve, node 1 is not reachable.",
 			n:            2,
 			startingNode: 0,
-			eachNodeTime: []Node{
+			eachNodeTime: []Q25_NetworkTimeDelay.Node{
 				0: {1, 2, 4}, //2----3---->4
 			},
 			out: -1,
@@ -50,7 +67,7 @@ func getTests() []InterfaceTest {
 			msg:          "-ve, there is no path from 1 to 3.",
 			n:            3,
 			startingNode: 0,
-			eachNodeTime: []Node{
+			eachNodeTime: []Q25_NetworkTimeDelay.Node{
 				0: {0, 1, 8}, //1----8---->4
 				1: {2, 0, 3}, //3----3---->1
 			},
@@ -64,7 +81,8 @@ func TestInterface(t *testing.T) {
 		impls,
 		//Soln1{},
 		//Prac1{},
-		Prac23AprDijk{},
+		//Prac23AprDijk{},
+		Prac23MayBellmanFord{},
 	)
 
 	tests := getTests()

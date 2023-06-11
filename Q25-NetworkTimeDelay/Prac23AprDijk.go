@@ -25,7 +25,6 @@ func (s Prac23AprDijk) FindMinTime(n, k int, times []Node) int {
 
 	for h.Len() > 0 {
 		currIdx := heap.Pop(&h).(int)
-
 		adjList := g[currIdx]
 		for _, adj := range adjList {
 			nbrVertex := adj[0]

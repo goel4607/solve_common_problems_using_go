@@ -3,7 +3,7 @@ package Q24_Course_scheduler
 type Soln1BruteForce struct {
 }
 
-func (s1 Soln1BruteForce) isItPossibleToFinishAllCourses(n int, preReqs []CourseDependency) bool {
+func (s1 Soln1BruteForce) canFinish(n int, preReqs [][2]int) bool {
 	//check for null condition
 	if n <= 1 {
 		return true
@@ -50,18 +50,18 @@ func (s1 Soln1BruteForce) isItPossibleToFinishAllCourses(n int, preReqs []Course
 	return true
 }
 
-func (s1 Soln1BruteForce) prepareAdjacencyListGraph(n int, prereqs []CourseDependency) [][]int {
+func (s1 Soln1BruteForce) prepareAdjacencyListGraph(n int, prereqs [][2]int) [][]int {
 	g := make([][]int, n, n)
 
 	for _, p := range prereqs {
-		depIdx := p.preReq
+		depIdx := p[1]
 		if len(g[depIdx]) == 0 {
 			g[depIdx] = make([]int, 0)
 		}
 
 		//when prerequisite says [course=2,pre-req=3] then it means that 3 is prereq for 2,
 		//so the adj list should populate: 2 index list with 3 in it
-		g[depIdx] = append(g[depIdx], p.course)
+		g[depIdx] = append(g[depIdx], p[0])
 	}
 
 	return g

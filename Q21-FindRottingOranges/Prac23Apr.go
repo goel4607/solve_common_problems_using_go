@@ -28,7 +28,7 @@ const (
 type Prac23Apr struct {
 }
 
-func (s Prac23Apr) findAllOrangesRottenTime(arr [][]int) int {
+func (s Prac23Apr) FindAllOrangesRottenTime(arr [][]int) int {
 	if len(arr) == 0 || len(arr[0]) == 0 {
 		return 0
 	}

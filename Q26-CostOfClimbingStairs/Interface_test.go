@@ -51,7 +51,13 @@ func TestMinCostOfClimbingStairs(t *testing.T) {
 		//&Soln1BtmUp{},
 		//&Soln1BtmUpWithMem{},
 		//&Prac23MayTry1{},
-		&Prac23MayBtmUp{},
+		//&Prac23MayBtmUp{},
+		//Prac23June01TopDown{},
+		//Prac23June01BtmUp{},
+		//Prac23June01BtmUpEff{},
+		//Prac23June02TopDown{},
+		//Prac23June02BtmUp{},
+		Prac23June02BtmUpEff{},
 	)
 
 	tests := getTests()
@@ -64,12 +70,12 @@ func TestMinCostOfClimbingStairs(t *testing.T) {
 		for _, impl := range impls {
 			t.Logf("Using: %T", impl)
 
-			actualMinCost, numCalls := impl.findMinCostOfClimbingStairs(tt.cost)
+			actualMinCost := impl.FindMinCostOfClimbingStairs(tt.cost)
 
 			if assert.Equal(t, tt.expectedMinCost, actualMinCost) {
-				t.Logf("\t%s\texpected output=%v, actual=%v, numCalls=%v", solve_common_problems_using_go.Passed, tt.expectedMinCost, actualMinCost, numCalls)
+				t.Logf("\t%s\texpected output=%v, actual=%v", solve_common_problems_using_go.Passed, tt.expectedMinCost, actualMinCost)
 			} else {
-				t.Logf("\t%s\txpected output=%v, actual=%v, numCalls=%v", solve_common_problems_using_go.Failed, tt.expectedMinCost, actualMinCost, numCalls)
+				t.Logf("\t%s\txpected output=%v, actual=%v", solve_common_problems_using_go.Failed, tt.expectedMinCost, actualMinCost)
 			}
 		}
 	}

@@ -9,9 +9,9 @@ func (s Soln1) startAndEndOfTgtInSortedArr(arr []int, val int) [2]int {
 		return [2]int{-1, -1}
 	}
 
-	left, leftNew := pos, pos
+	left := pos
 	for left > 0 {
-		leftNew = s.binarySearch(arr, val, 0, left-1)
+		leftNew := s.binarySearch(arr, val, 0, left-1)
 		if leftNew == -1 {
 			break
 		}
@@ -19,9 +19,9 @@ func (s Soln1) startAndEndOfTgtInSortedArr(arr []int, val int) [2]int {
 		left = leftNew
 	}
 
-	right, rightNew := pos, pos
+	right := pos
 	for right < len(arr) {
-		rightNew = s.binarySearch(arr, val, right+1, len(arr)-1)
+		rightNew := s.binarySearch(arr, val, right+1, len(arr)-1)
 		if rightNew == -1 {
 			break
 		}

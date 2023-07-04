@@ -8,7 +8,7 @@ import (
 type Soln1 struct {
 }
 
-func (s Soln1) FindMinTime(n, start int, nodes []Node) int {
+func (s Soln1) NetworkDelayTime(n, start int, nodes [][]int) int {
 	g := s.createAdjList(n, nodes)
 
 	minWeights := make([]int, n, n)
@@ -35,7 +35,7 @@ func (s Soln1) FindMinTime(n, start int, nodes []Node) int {
 		list := g[prev.index]
 		for _, v := range list {
 			if finalNodes[v.index] {
-				continue //ignore the finalized node indexes
+				continue //ignore the finalized node vertices
 			}
 
 			v.weight = v.weight + prev.weight // add the Weight till the current node
@@ -116,21 +116,21 @@ func (h *NodeWeightsHeap) Pop() any {
 // [0] -> Start node,
 // [1] -> End node,
 // [2] -> Weight
-func (s Soln1) createAdjList(n int, nodes []Node) [][]NodeWeight {
+func (s Soln1) createAdjList(n int, nodes [][]int) [][]NodeWeight {
 	g := make([][]NodeWeight, n, n)
 
 	for _, v := range nodes {
 
 		var adjList []NodeWeight
-		if len(g[v.Start]) == 0 {
+		if len(g[v[0]]) == 0 {
 			adjList = make([]NodeWeight, 0)
 		} else {
-			adjList = g[v.Start]
+			adjList = g[v[0]]
 		}
 
-		adjList = append(adjList, NodeWeight{index: v.End, weight: v.Weight})
+		adjList = append(adjList, NodeWeight{index: v[1], weight: v[2]})
 
-		g[v.Start] = adjList
+		g[v[0]] = adjList
 	}
 
 	return g

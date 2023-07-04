@@ -6,11 +6,11 @@ type Soln1 struct {
 	numCalls int
 }
 
-func (s *Soln1) findMinCostOfClimbingStairs(cost []int) (int, int) {
+func (s *Soln1) FindMinCostOfClimbingStairs(cost []int) int {
 	n := len(cost)
 	mem := make(map[int]int)
 
-	return int(math.Min(float64(s.findMinCost(cost, n-1, mem)), float64(s.findMinCost(cost, n-2, mem)))), s.numCalls
+	return int(math.Min(float64(s.findMinCost(cost, n-1, mem)), float64(s.findMinCost(cost, n-2, mem))))
 }
 
 func (s *Soln1) findMinCost(cost []int, n int, mem map[int]int) int {

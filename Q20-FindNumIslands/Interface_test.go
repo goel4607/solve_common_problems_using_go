@@ -13,7 +13,7 @@ var (
 
 type InterfaceTest struct {
 	msg string
-	in  [][]int
+	in  [][]byte
 	out int
 }
 
@@ -21,7 +21,7 @@ func getTests() []InterfaceTest {
 	return []InterfaceTest{
 		{
 			msg: "5 by 4 array",
-			in: [][]int{
+			in: [][]byte{
 				{1, 1, 1, 1, 0},
 				{1, 1, 0, 1, 0},
 				{1, 1, 0, 0, 1},
@@ -31,13 +31,33 @@ func getTests() []InterfaceTest {
 		},
 		{
 			msg: "5 by 4 array",
-			in: [][]int{
+			in: [][]byte{
 				{0, 1, 0, 1, 0},
 				{1, 0, 1, 0, 1},
 				{0, 1, 1, 1, 0},
 				{1, 0, 1, 0, 1},
 			},
 			out: 7,
+		},
+		{
+			msg: "lc ex",
+			in: [][]byte{
+				{1, 1, 1, 1, 0},
+				{1, 1, 0, 1, 0},
+				{1, 1, 0, 0, 0},
+				{0, 0, 0, 0, 0},
+			},
+			out: 1,
+		},
+		{
+			msg: "lc ex",
+			in: [][]byte{
+				{1, 1, 0, 0, 0},
+				{1, 1, 0, 0, 0},
+				{0, 0, 1, 0, 0},
+				{0, 0, 0, 1, 1},
+			},
+			out: 3,
 		},
 	}
 }
@@ -46,7 +66,8 @@ func TestInterface(t *testing.T) {
 	impls = append(
 		impls,
 		//Soln1{},
-		Prac23Apr{},
+		//Prac23Apr{},
+		Prac23June01BFS{},
 	)
 
 	tests := getTests()
@@ -60,7 +81,7 @@ func TestInterface(t *testing.T) {
 
 		for i, tt := range tests {
 
-			a := impl.findNumIslands(tt.in)
+			a := impl.FindNumIslands(tt.in)
 
 			var pOrF string
 			if assert.Equal(t, tt.out, a) {

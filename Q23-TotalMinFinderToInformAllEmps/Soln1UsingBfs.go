@@ -4,7 +4,7 @@ type Soln1UsingBfs struct {
 }
 
 //goland:noinspection SpellCheckingInspection
-func (s Soln1UsingBfs) FindTotalMinutesToInformAllEmps(headId int, mgrs, informTime []int) int {
+func (s Soln1UsingBfs) numOfMinutes(headId int, mgrs, informTime []int) int {
 	if len(mgrs) <= 1 {
 		return 0
 	}

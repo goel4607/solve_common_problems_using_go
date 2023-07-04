@@ -69,7 +69,8 @@ func TestInterface(t *testing.T) {
 	impls = append(
 		impls,
 		//Soln1{},
-		Prac23Apr{},
+		//Prac23Apr{},
+		Prac23June01Sol1{},
 	)
 
 	tests := getTests()
@@ -83,7 +84,7 @@ func TestInterface(t *testing.T) {
 
 		for i, tt := range tests {
 
-			a := impl.findAllOrangesRottenTime(tt.in)
+			a := impl.FindAllOrangesRottenTime(tt.in)
 
 			var pOrF string
 			if assert.Equal(t, tt.out, a) {

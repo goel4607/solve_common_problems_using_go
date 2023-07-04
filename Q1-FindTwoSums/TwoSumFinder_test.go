@@ -58,7 +58,8 @@ func TestFindTwoSumsPositive(t *testing.T) {
 		//TwoSumFinderSolution1BF{},
 		//TwoSumFinderS2Efficient{},
 		//TwoSumFinderS3{},
-		Prac23Week11{},
+		//Prac23Week11{},
+		TwoSumsFinder230601{},
 	)
 
 	tests := tellMeTestsToRun()

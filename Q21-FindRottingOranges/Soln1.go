@@ -33,7 +33,7 @@ type RottenPosWithOrangePos struct {
 type Soln1 struct {
 }
 
-func (s Soln1) findAllOrangesRottenTime(arr [][]int) int {
+func (s Soln1) FindAllOrangesRottenTime(arr [][]int) int {
 	if arr == nil {
 		return -1
 	}

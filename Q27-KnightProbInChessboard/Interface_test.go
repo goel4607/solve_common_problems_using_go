@@ -60,11 +60,12 @@ func TestKnightProbInChessboard(t *testing.T) {
 
 	impls = append(
 		impls,
-		&Soln1TopDown{},
+		//&Soln1TopDown{},
 		//&Soln1MemUsingArr{},
 		//&Soln1{},
 		//&Soln1TopDown{},
 		//&Soln1TopDown{},
+		Prac23June01Soln{},
 	)
 
 	tests := getTests()

@@ -3,17 +3,17 @@ package Q26_CostOfClimbingStairs
 type Prac23MayBtmUp struct {
 }
 
-func (s Prac23MayBtmUp) findMinCostOfClimbingStairs(cost []int) (int, int) {
+func (s Prac23MayBtmUp) FindMinCostOfClimbingStairs(cost []int) int {
 	prev := cost[0]
 	latest := cost[1]
 	for i := 2; i < len(cost); i++ {
 		latest, prev = cost[i]+minVal(latest, prev), latest
 	}
 
-	return minVal(prev, latest), 2
+	return minVal(prev, latest)
 }
 
-//func (s Prac23MayBtmUp) findMinCostOfClimbingStairs(cost []int) (int, int) {
+//func (s Prac23MayBtmUp) FindMinCostOfClimbingStairs(cost []int) int {
 //	n := len(cost)
 //	dp := make([]int, n, n)
 //

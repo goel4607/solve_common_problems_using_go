@@ -58,8 +58,11 @@ func TestContainerWithMostWater(t *testing.T) {
 			//MostWaterContainerFinderS2Efficient{},
 			//MostWaterContainerFinderS3Prac{},
 			//Prac2{},
-			Prac23Week11{},
+			//Prac23Week11{},
+			Prac230601{},
 		)
+
+	assert.NotEmptyf(t, impls, "no implemantations present!!")
 
 	tests := testData()
 	for _, impl := range impls {

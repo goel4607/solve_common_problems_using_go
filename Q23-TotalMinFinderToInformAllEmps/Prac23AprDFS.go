@@ -4,8 +4,8 @@ package Q23_TotalMinFinderToInformAllEmps
 type Prac23AprDFS struct {
 }
 
-func (s Prac23AprDFS) FindTotalMinutesToInformAllEmps(headId int, mgrs, informTime []int) int {
-	g := s.makeAdjList(headId, mgrs)
+func (s Prac23AprDFS) numOfMinutes(headId int, manager, informTime []int) int {
+	g := s.makeAdjList(headId, manager)
 	return s.visitEachSubOrdinateManagerUsingDFS(headId, g, informTime)
 }
 

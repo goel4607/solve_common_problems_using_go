@@ -22,7 +22,7 @@ var BFSMoves = []Pos1{
 type Prac23Apr struct {
 }
 
-func (s Prac23Apr) findNumIslands(arr [][]int) int {
+func (s Prac23Apr) FindNumIslands(arr [][]int) int {
 	numRows := len(arr)
 	if numRows == 0 {
 		return 0

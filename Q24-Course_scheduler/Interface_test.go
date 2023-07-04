@@ -14,16 +14,23 @@ var (
 type InterfaceTest struct {
 	msg     string
 	n       int
-	preReqs []CourseDependency
+	preReqs [][]int
 	out     bool
 }
+
+//
+//								4
+//								5
+//						3		2
+//							0
+// 							1
 
 func getTests() []InterfaceTest {
 	return []InterfaceTest{
 		{
 			msg: "+ve, course dependency with no cycle.",
 			n:   7,
-			preReqs: []CourseDependency{
+			preReqs: [][]int{
 				0: {1, 0},
 				1: {2, 1},
 				2: {2, 5},
@@ -35,9 +42,24 @@ func getTests() []InterfaceTest {
 			out: true,
 		},
 		{
+			msg: "+ve, course dependency with no cycles.",
+			n:   7,
+			preReqs: [][]int{
+				{1, 0},
+				{0, 3},
+				{0, 2},
+				{3, 2},
+				{2, 5},
+				{4, 5},
+				{5, 6},
+				{2, 4},
+			},
+			out: true,
+		},
+		{
 			msg: "+ve, course dependency with one cycle.",
 			n:   7,
-			preReqs: []CourseDependency{
+			preReqs: [][]int{
 				0: {1, 0},
 				1: {2, 1},
 				2: {5, 2},
@@ -51,7 +73,7 @@ func getTests() []InterfaceTest {
 		{
 			msg: "-ve, course dependency with one cycle.",
 			n:   7,
-			preReqs: []CourseDependency{
+			preReqs: [][]int{
 				0: {1, 0},
 				1: {2, 1},
 				2: {2, 5},
@@ -65,7 +87,7 @@ func getTests() []InterfaceTest {
 		{
 			msg: "-ve, course dependency with two cycles.",
 			n:   7,
-			preReqs: []CourseDependency{
+			preReqs: [][]int{
 				0: {1, 0},
 				1: {2, 1},
 				2: {5, 2},
@@ -79,7 +101,7 @@ func getTests() []InterfaceTest {
 		{
 			msg: "-ve, course dependency with two cycles.",
 			n:   2,
-			preReqs: []CourseDependency{
+			preReqs: [][]int{
 				0: {1, 0},
 			},
 			out: true,
@@ -87,7 +109,7 @@ func getTests() []InterfaceTest {
 		{
 			msg:     "-ve, course dependency with two cycles.",
 			n:       0,
-			preReqs: []CourseDependency{},
+			preReqs: [][]int{},
 			out:     true,
 		},
 	}
@@ -99,7 +121,16 @@ func TestInterface(t *testing.T) {
 		//Soln1BruteForce{},
 		//Soln2TopSort{},
 		//Soln3TopSortEfficient{},
-		Prac23AprTopSort{},
+		//Prac23AprTopSort{},
+		//Prac230601BFS{},
+		//Prac230601TopSort{},
+		//Prac230602BFS{},
+		//Prac23June02TopSort{},
+		//Prac23June03TopSort{},
+		//Prac23June03BFS{},
+		//Prac23June04TopSort{},
+		//Prac23July01TopSort{},
+		Prac23July01BFS{},
 	)
 
 	tests := getTests()
@@ -113,7 +144,7 @@ func TestInterface(t *testing.T) {
 
 		for i, tt := range tests {
 
-			actual := impl.isItPossibleToFinishAllCourses(tt.n, tt.preReqs)
+			actual := impl.canFinish(tt.n, tt.preReqs)
 
 			var pOrF string
 			if assert.Equal(t, tt.out, actual) {

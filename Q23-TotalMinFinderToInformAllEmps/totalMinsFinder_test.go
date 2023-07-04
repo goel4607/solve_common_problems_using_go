@@ -22,6 +22,13 @@ type InterfaceTest struct {
 func getTests() []InterfaceTest {
 	return []InterfaceTest{
 		{
+			msg:               "need to see",
+			headID:            0,
+			managers:          []int{-1, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6},
+			informTime:        []int{1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+			expectedTotalTime: 3,
+		},
+		{
 			msg:    "head has 3 employees and each of those has 1 or 2 employees",
 			headID: 4,
 			managers: []int{
@@ -89,7 +96,9 @@ func TestInterface(t *testing.T) {
 		//Soln1UsingBfs{},
 		//Prac23Week11UsingBfs{},
 		//Prac23Week11UsingDFS{},
-		Prac23AprDFS{},
+		//Prac23AprDFS{},
+		//Prac23June01DFS{},
+		Prac23June02DFS{},
 	)
 
 	tests := getTests()
@@ -103,7 +112,7 @@ func TestInterface(t *testing.T) {
 
 		for i, tt := range tests {
 
-			aTotalTime := impl.FindTotalMinutesToInformAllEmps(tt.headID, tt.managers, tt.informTime)
+			aTotalTime := impl.numOfMinutes(len(tt.informTime), tt.headID, tt.managers, tt.informTime)
 
 			var pOrF string
 			if assert.Equal(t, tt.expectedTotalTime, aTotalTime) {

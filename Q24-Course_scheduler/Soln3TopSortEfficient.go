@@ -3,7 +3,7 @@ package Q24_Course_scheduler
 type Soln3TopSortEfficient struct {
 }
 
-func (s Soln3TopSortEfficient) isItPossibleToFinishAllCourses(n int, prereqs []CourseDependency) bool {
+func (s Soln3TopSortEfficient) canFinish(n int, prereqs [][2]int) bool {
 	if n <= 1 {
 		return true
 	}
@@ -37,17 +37,17 @@ func (s Soln3TopSortEfficient) isItPossibleToFinishAllCourses(n int, prereqs []C
 	return false
 }
 
-func (s Soln3TopSortEfficient) createInDegreeAndAdjList(n int, preReqs []CourseDependency) ([]int, [][]int) {
+func (s Soln3TopSortEfficient) createInDegreeAndAdjList(n int, preReqs [][2]int) ([]int, [][]int) {
 	inDeg := make([]int, n, n)
 	g := make([][]int, n, n)
 	for _, p := range preReqs {
-		if len(g[p.preReq]) == 0 {
-			g[p.preReq] = make([]int, 0)
+		if len(g[p[1]]) == 0 {
+			g[p[1]] = make([]int, 0)
 		}
 
-		g[p.preReq] = append(g[p.preReq], p.course)
+		g[p[1]] = append(g[p[1]], p[0])
 
-		inDeg[p.course] += 1
+		inDeg[p[0]] += 1
 	}
 
 	return inDeg, g

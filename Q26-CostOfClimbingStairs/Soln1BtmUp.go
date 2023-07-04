@@ -5,7 +5,7 @@ import "math"
 type Soln1BtmUp struct {
 }
 
-func (s Soln1BtmUp) findMinCostOfClimbingStairs(cost []int) (int, int) {
+func (s Soln1BtmUp) FindMinCostOfClimbingStairs(cost []int) int {
 	var numCalls int
 
 	n := len(cost)
@@ -26,5 +26,5 @@ func (s Soln1BtmUp) findMinCostOfClimbingStairs(cost []int) (int, int) {
 	} else {
 		min = dp[n-2]
 	}
-	return min, numCalls
+	return min
 }

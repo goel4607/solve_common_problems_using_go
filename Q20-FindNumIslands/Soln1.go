@@ -27,7 +27,7 @@ const (
 	LAND
 )
 
-func (s Soln1) findNumIslands(arr [][]int) int {
+func (s Soln1) FindNumIslands(arr [][]int) int {
 	//create a boolean 2d array representing visited positions
 	numRows := len(arr)
 	visitedPos := make([][]bool, numRows, numRows)

@@ -52,8 +52,12 @@ func TestFindTrappedWater(t *testing.T) {
 		//TrappedWaterFinderSolution2Efficient{},
 		//TrappedWaterFinderS3Att{},
 		//FindTrappedWaterPrac2{},
-		Prac23Week11{},
+		//Prac23Week11{},
+		TrappedWaterFinderPrac230601{},
 	)
+
+	assert.NotEmptyf(t, impls, "no implemantations present!!")
+
 	for _, impl := range impls {
 		t.Logf("Using: %T", impl)
 

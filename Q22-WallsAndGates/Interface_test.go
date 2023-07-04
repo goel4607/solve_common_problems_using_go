@@ -68,7 +68,8 @@ func TestInterface(t *testing.T) {
 		impls,
 		//Soln1{},
 		//Prac23AprNum1BFS{},
-		Prac23AprNum2DFS{},
+		//Prac23AprNum2DFS{},
+		Prac23June01DFS{},
 	)
 
 	tests := getTests()

@@ -6,7 +6,7 @@ import "container/heap"
 type Prac23AprDijk struct {
 }
 
-func (s Prac23AprDijk) FindMinTime(n, k int, times []Node) int {
+func (s Prac23AprDijk) NetworkDelayTime(times [][]int, n, k int) int {
 	//create an adjacency list graph
 	g := s.createAdjList(n, times)
 	//create an arr of min distances from k node with initial distances as infinite to indicate that it is not
@@ -15,13 +15,13 @@ func (s Prac23AprDijk) FindMinTime(n, k int, times []Node) int {
 		dists[i] = math.MaxInt
 	}
 
-	dists[k] = 0 //since the distance from k to itself is zero
+	dists[k-1] = 0 //since the distance from k to itself is zero
 
-	//create a priority queue that uses the dists to consult
+	//create a priority queue that uses the distances to consult
 	h := MyHeap{vertexes: make([]int, 0), dists: &dists}
 	heap.Init(&h)
 
-	heap.Push(&h, k)
+	heap.Push(&h, k-1)
 
 	for h.Len() > 0 {
 		currIdx := heap.Pop(&h).(int)
@@ -52,21 +52,24 @@ func (s Prac23AprDijk) FindMinTime(n, k int, times []Node) int {
 	return max
 }
 
-func (s Prac23AprDijk) createAdjList(n int, nodes []Node) [][][]int {
+func (s Prac23AprDijk) createAdjList(n int, times [][]int) [][][]int {
 	g := make([][][]int, n, n)
-	for _, n := range nodes {
-		adj := make([]int, 0, 0)
-		adj = append(adj, n.End, n.Weight)
+	for _, t := range times {
+		start := t[0] - 1
+		end := t[1] - 1
 
-		if g[n.Start] == nil {
+		adj := make([]int, 0, 0)
+		adj = append(adj, end, t[2])
+
+		if g[start] == nil {
 			adjList := make([][]int, 0)
 			adjList = append(adjList, adj)
 
-			g[n.Start] = adjList
+			g[start] = adjList
 		} else {
-			adjList := g[n.Start]
+			adjList := g[start]
 			adjList = append(adjList, adj)
-			g[n.Start] = adjList
+			g[start] = adjList
 		}
 	}
 

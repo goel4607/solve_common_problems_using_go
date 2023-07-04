@@ -13,7 +13,7 @@ type NodeDist struct {
 	dist   int
 }
 
-func (p1 Prac1) FindMinTime(n, start int, nodes []Node) int {
+func (p1 Prac1) NetworkDelayTime(n, start int, nodes [][]int) int {
 	//prepare the adjacency list
 	g := p1.prepareAdjacencyList(n, nodes)
 	//apply dijkstra algorithm to find the shortest path
@@ -97,16 +97,16 @@ func (p1 Prac1) updatePQ(h *PQNodeDist, adjNode NodeDist, dists []int) {
 	}
 }
 
-func (p1 Prac1) prepareAdjacencyList(n int, nodes []Node) [][]NodeDist {
+func (p1 Prac1) prepareAdjacencyList(n int, nodes [][]int) [][]NodeDist {
 	g := make([][]NodeDist, n, n)
 	for _, v := range nodes {
-		adjNodes := g[v.Start]
-		if len(g[v.Start]) == 0 {
+		adjNodes := g[v[0]]
+		if len(g[v[0]]) == 0 {
 			adjNodes = make([]NodeDist, 0)
 		}
 
-		adjNodes = append(adjNodes, NodeDist{target: v.End, dist: v.Weight})
-		g[v.Start] = adjNodes
+		adjNodes = append(adjNodes, NodeDist{target: v[1], dist: v[2]})
+		g[v[0]] = adjNodes
 	}
 
 	return g

@@ -2,7 +2,7 @@ A company has n employees with unique IDs from 0 to n-1. The head of the company
 n = 8       8 employees: 0, 1, 2, 3, **4**, 5, 6, 7        
                                     headID = 4
 
-You will receive a managers array where managers[i] is the ID of the manage for emplyee i. Each employee has one direct manager. The company head has no manager (managers[headID] = -1). It's guaranteed the subordination relationships will have a tree structure.
+You will receive a managers array where managers[i] is the ID of the manage for employee i. Each employee has one direct manager. The company head has no manager (managers[headID] = -1). It's guaranteed the subordination relationships will have a tree structure.
 
 n = 8       8 employees:  0, 1, 2, 3,  4, 5, 6, 7     headID = 4
                 managers=[2, 3, 4, 6, -1, 4, 4, 5]

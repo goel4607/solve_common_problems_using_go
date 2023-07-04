@@ -49,8 +49,7 @@ func (s Soln1TopDown) computeProbAtPosition(n, k, r, c int, dp [][][]float64) fl
 
 	var prob float64
 	for _, m := range Moves {
-		p := s.computeProbAtPosition(n, k-1, r+m.r, c+m.c, dp)
-		prob += p
+		prob += s.computeProbAtPosition(n, k-1, r+m.r, c+m.c, dp)
 	}
 
 	prob = prob / float64(len(Moves))

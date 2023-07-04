@@ -1,14 +1,13 @@
 package negativeValues
 
 import (
-	Q25_NetworkTimeDelay "github.com/solve_common_problems_using_go/Q25-NetworkTimeDelay"
 	"math"
 )
 
 type Prac23MayBellmanFord struct {
 }
 
-func (s Prac23MayBellmanFord) FindMinTime(n, k int, times []Q25_NetworkTimeDelay.Node) int {
+func (s Prac23MayBellmanFord) NetworkDelayTime(times [][]int, n, k int) int {
 	//init the dist from start node to all nodes with infinity
 	dists := make([]int, n, n)
 	for i := range dists {
@@ -27,13 +26,13 @@ func (s Prac23MayBellmanFord) FindMinTime(n, k int, times []Q25_NetworkTimeDelay
 	for i := 0; i < n-1; i++ {
 		var hasChanged bool
 		for _, e := range times {
-			if dists[e.Start] == math.MaxInt {
+			if dists[e[0]] == math.MaxInt {
 				continue //ignore this value since it is already infinity
 			}
 
-			d := dists[e.Start] + e.Weight
-			if d < dists[e.End] {
-				dists[e.End] = d //update the distance if its new distance is < than the old distance
+			d := dists[e[0]] + e[2]
+			if d < dists[e[1]] {
+				dists[e[1]] = d //update the distance if its new distance is < than the old distance
 				hasChanged = true
 			}
 		}

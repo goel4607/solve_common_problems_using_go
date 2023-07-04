@@ -15,44 +15,64 @@ type InterfaceTest struct {
 	msg          string
 	n            int
 	startingNode int
-	eachNodeTime []Node
+	eachNodeTime [][]int
 	out          int
 }
 
 func getTests() []InterfaceTest {
 	return []InterfaceTest{
 		{
+			msg:          "+ve",
+			n:            4,
+			startingNode: 2,
+			eachNodeTime: [][]int{
+				{2, 1, 1},
+				{2, 3, 1},
+				{3, 4, 1},
+			},
+			out: 2,
+		},
+		{
+			msg:          "+ve",
+			n:            2,
+			startingNode: 1,
+			eachNodeTime: [][]int{
+				{1, 2, 1},
+			},
+			out: 1,
+		},
+		{
 			msg:          "+ve, all reachable nodes.",
 			n:            5,
-			startingNode: 0,
-			eachNodeTime: []Node{
-				0: {0, 1, 9}, // 1 ---9---> 2
-				1: {0, 3, 2},
-				2: {1, 4, 1},
-				3: {3, 1, 4},
-				4: {3, 4, 6},
-				5: {2, 1, 3},
-				6: {4, 2, 7},
-				7: {2, 0, 5},
+			startingNode: 1,
+			eachNodeTime: [][]int{
+				0: {1, 2, 9}, // 1 ---9---> 2
+				1: {1, 4, 2},
+				2: {2, 5, 1},
+				3: {4, 2, 4},
+				4: {4, 5, 6},
+				5: {3, 2, 3},
+				6: {5, 3, 7},
+				7: {3, 1, 5},
 			},
 			out: 14,
 		},
 		{
 			msg:          "-ve, node 1 is not reachable.",
 			n:            2,
-			startingNode: 0,
-			eachNodeTime: []Node{
-				0: {1, 2, 4}, //2----3---->4
+			startingNode: 1,
+			eachNodeTime: [][]int{
+				0: {2, 3, 4}, //2----3---->4
 			},
 			out: -1,
 		},
 		{
 			msg:          "-ve, there is no path from 1 to 3.",
 			n:            3,
-			startingNode: 0,
-			eachNodeTime: []Node{
-				0: {0, 1, 8}, //1----8---->4
-				1: {2, 0, 3}, //3----3---->1
+			startingNode: 1,
+			eachNodeTime: [][]int{
+				0: {1, 2, 8}, //1----8---->4
+				1: {3, 1, 3}, //3----3---->1
 			},
 			out: -1,
 		},
@@ -64,7 +84,11 @@ func TestInterface(t *testing.T) {
 		impls,
 		//Soln1{},
 		//Prac1{},
-		Prac23AprDijk{},
+		//Prac23AprDijk{},
+		//Prac23June01Dijk{},
+		//Prac23June01DijkWithHeap{},
+		//Prac23June02DijkHeap{},
+		Prac23July01DijkstraWithHeap{},
 	)
 
 	tests := getTests()
@@ -78,7 +102,7 @@ func TestInterface(t *testing.T) {
 
 		for i, tt := range tests {
 
-			actual := impl.FindMinTime(tt.n, tt.startingNode, tt.eachNodeTime)
+			actual := impl.NetworkDelayTime(tt.eachNodeTime, tt.n, tt.startingNode)
 
 			var pOrF string
 			if assert.Equal(t, tt.out, actual) {

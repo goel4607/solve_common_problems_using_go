@@ -3,7 +3,7 @@ package Q24_Course_scheduler
 type Soln2TopSort struct {
 }
 
-func (s Soln2TopSort) isItPossibleToFinishAllCourses(n int, preReqs []CourseDependency) bool {
+func (s Soln2TopSort) canFinish(n int, preReqs [][2]int) bool {
 	if n <= 1 {
 		return true
 	}
@@ -46,17 +46,17 @@ func (s Soln2TopSort) isItPossibleToFinishAllCourses(n int, preReqs []CourseDepe
 	return true
 }
 
-func (s Soln2TopSort) convertToInDegreeMaps(n int, preReqs []CourseDependency) []map[int]bool {
+func (s Soln2TopSort) convertToInDegreeMaps(n int, preReqs [][2]int) []map[int]bool {
 	courseInDegMap := make([]map[int]bool, n, n)
 
 	for _, p := range preReqs {
-		inDegMap := courseInDegMap[p.course]
-		if courseInDegMap[p.course] == nil {
+		inDegMap := courseInDegMap[p[0]]
+		if courseInDegMap[p[0]] == nil {
 			inDegMap = make(map[int]bool)
-			courseInDegMap[p.course] = inDegMap
+			courseInDegMap[p[0]] = inDegMap
 		}
 
-		inDegMap[p.preReq] = true
+		inDegMap[p[1]] = true
 	}
 
 	return courseInDegMap

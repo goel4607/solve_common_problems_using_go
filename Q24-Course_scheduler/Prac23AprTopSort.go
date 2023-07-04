@@ -4,7 +4,7 @@ package Q24_Course_scheduler
 type Prac23AprTopSort struct {
 }
 
-func (s Prac23AprTopSort) isItPossibleToFinishAllCourses(n int, prereqs []CourseDependency) bool {
+func (s Prac23AprTopSort) canFinish(n int, prereqs [][2]int) bool {
 	//create in-degree list and adjacency list for each course's next courses
 	inDegs, adjs := s.createInDegreeListAndAdjList(n, prereqs)
 	//find zero in-degrees to start with
@@ -42,19 +42,19 @@ func (s Prac23AprTopSort) isItPossibleToFinishAllCourses(n int, prereqs []Course
 	return false
 }
 
-func (s Prac23AprTopSort) createInDegreeListAndAdjList(n int, prereqs []CourseDependency) ([]int, [][]int) {
+func (s Prac23AprTopSort) createInDegreeListAndAdjList(n int, prereqs [][2]int) ([]int, [][]int) {
 	inDegs := make([]int, n, n)
 	adjs := make([][]int, n, n)
 	for _, pr := range prereqs {
-		inDegs[pr.course] += 1
+		inDegs[pr[0]] += 1
 
-		if adjs[pr.preReq] == nil {
+		if adjs[pr[1]] == nil {
 			a := make([]int, 0)
-			a = append(a, pr.course)
+			a = append(a, pr[0])
 
-			adjs[pr.preReq] = a
+			adjs[pr[1]] = a
 		} else {
-			adjs[pr.preReq] = append(adjs[pr.preReq], pr.course)
+			adjs[pr[1]] = append(adjs[pr[1]], pr[0])
 		}
 	}
 
